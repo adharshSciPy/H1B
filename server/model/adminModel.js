@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs"
 import mongoose, { Schema } from "mongoose";
 const defaultRole = process.env.ADMIN_ROLE
 const adminSchema = new Schema({
-    fullName: {
+    firstName: {
         type: String
     },
     lastName:{
@@ -67,19 +67,19 @@ adminSchema.methods.generateAccessToken = async function () {
 }
 
 // generate refresh token
-adminSchema.methods.generateRefreshToken = async function () {
-    return jwt.sign(
-        {
-            id: this._id,
-            email: this.email,
-            role: this.role,
-        },
-        process.env.REFRESH_TOKEN_SECRET,
-        {
-            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
-        }
-    )
-}
+// adminSchema.methods.generateRefreshToken = async function () {
+//     return jwt.sign(
+//         {
+//             id: this._id,
+//             email: this.email,
+//             role: this.role,
+//         },
+//         process.env.REFRESH_TOKEN_SECRET,
+//         {
+//             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+//         }
+//     )
+// }
 
 // matching admin password
 adminSchema.methods.isPasswordCorrect = async function (password) {

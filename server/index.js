@@ -6,6 +6,7 @@ import connectMongodb from "./mongoDb/mongoConnect.js";
 import dotenv from "dotenv";
 import adminRouter from "./routes/adminRouter.js";
 import userRouter from "./routes/userRouter.js";
+import collaboratorRouter from "./routes/collaboratorRouter.js";
 
 dotenv.config();
 const app = express();
@@ -28,5 +29,7 @@ connectMongodb()
 
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/collaborator", collaboratorRouter);
+
 
   

@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
 import mongoose, { Schema } from "mongoose";
-const defaultRole = process.env.ADMIN_ROLE
-const adminSchema = new Schema({
+const defaultRole = process.env.COLLABORATOR_ROLE
+const collaboratorSchema = new Schema({
     firstName: {
         type: String
     },
@@ -40,7 +40,7 @@ const adminSchema = new Schema({
 
 // hashing admin password
 
-adminSchema.pre("save", async function (next) {
+collaboratorSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
     try {
         this.password = await bcrypt.hash(this.password, 10);
@@ -51,7 +51,7 @@ adminSchema.pre("save", async function (next) {
 })
 
 //generate access token
-adminSchema.methods.generateAccessToken = async function () {
+collaboratorSchema.methods.generateAccessToken = async function () {
     return jwt.sign(
         {
             id: this._id,
@@ -67,7 +67,7 @@ adminSchema.methods.generateAccessToken = async function () {
 }
 
 // generate refresh token
-adminSchema.methods.generateRefreshToken = async function () {
+collaboratorSchema.methods.generateRefreshToken = async function () {
     return jwt.sign(
         {
             id: this._id,
@@ -82,7 +82,7 @@ adminSchema.methods.generateRefreshToken = async function () {
 }
 
 // matching admin password
-adminSchema.methods.isPasswordCorrect = async function (password) {
+collaboratorSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.password);
 };
 
@@ -90,4 +90,4 @@ adminSchema.methods.isPasswordCorrect = async function (password) {
 
 
 
-export const Admin = mongoose.model("admin", adminSchema)
+export const Collaborator = mongoose.model("collaborator", collaboratorSchema)

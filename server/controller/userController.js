@@ -1,4 +1,5 @@
 import { User } from "../model/userModel.js";
+import { Admin } from "../model/adminModel.js";
 import jwt from "jsonwebtoken";
 import { passwordValidator } from "../utils/passwordValidator.js";
 
@@ -70,59 +71,59 @@ const registerUser = async (req, res) => {
 // @POST
 // user/login
 // desc: Login API for user with credentials
-// const loginUser = async (req, res) => {
-//   const { email, password } = req.body;
+const adminlogin = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const isEmptyField = [email, password].some(
+            (field) => !field || field.trim() === '' 
+        );
+        if (isEmptyField) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
 
-//   try {
-//     // Sanitize and validate input
-//     if (!email?.trim() || !password?.trim()) {
-//       return res.status(400).json({ message: "All fields are required" });
-//     }
+        let admin = await Admin.findOne({ email: email });
+        let role = 500;
 
-//     // Find the user
-//  const user=await User.findOne({email:email});
+        if (!admin) {
+            admin = await User.findOne({ email: email });
+            role = 300;
+        }
 
-//     if (!user) {
-//       return res.status(404).json({ message: "Email doesn't exist" });
-//     }
+        if (!admin) {
+            return res.status(404).json({ message: 'No user found' });
+        }
+
+        const isPasswordCorrect = await admin.isPasswordCorrect(password);
+        if (!isPasswordCorrect) {
+            return res.status(401).json({ message: 'Incorrect Password' });
+        }
 
 
+        const accessToken = await admin.generateAccessToken();
 
-//     // Verify password
-//     const isPasswordCorrect = await user.isPasswordCorrect(password);
-//     if (!isPasswordCorrect) {
-//       return res.status(401).json({ message: "Incorrect password" });
-//     }
-//     const userStatus=await user.isEnabled;
-//     if(!userStatus){
-//       return res.status(401).json({message:"You have been disabled by admin"})
-//     }
-//     // // Mark user as logged in
-//     // user.hasLoggedIn = true;
-//     // await user.save();
+        const refreshToken = await admin.generateRefreshToken();
 
-//     // Generate tokens
-//     const accessToken = await user.generateAccessToken();
-//     const refreshToken = await user.generateRefreshToken();
+        // Store refresh token in a cookie
+        res.cookie("refreshToken", refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // Set to true in production
+            sameSite: "None",
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
+        });
 
-//     // Set refresh token in cookie
-//     res.cookie("refreshToken", refreshToken, {
-//       httpOnly: true,
-//       secure: process.env.NODE_ENV === "production", // Secure only in production
-//       sameSite: "None",
-//       maxAge: 7 * 24 * 60 * 60 * 1000,
-//     });
+        return res.status(200).json({
+            message: `${role} login successful`,
+            role,
 
-//     return res
-//       .status(200)
-//       .json({ message: "Login successful", token: accessToken });
-//   } catch (err) {
-//     console.error("Error during login:", err);
-//     return res
-//       .status(500)
-//       .json({ message: `Internal Server Error: ${err.message}` });
-//   }
-// };
+            token: accessToken,
+            admin,
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: `Internal server error: ${error.message}` });
+    }
+};
 
 // @POST
 // user/refresh
@@ -223,4 +224,5 @@ export{
     registerUser,
     refreshAccessToken,
     logoutUser,
+    adminlogin
 }

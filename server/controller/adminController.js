@@ -49,6 +49,21 @@ const registerAdmin=async(req,res)=>{
         
     }
 }
+const adminLogout = async (req, res) => {
+    try {
+        const { refreshToken } = req.cookies;
+        if (!refreshToken) {
+            return res.status(204).json({ message: "Invalid Cookie" })
+        }
+        res.clearCookie("refreshToken", {
+            httpOnly: true,
+            secure: false,//Secure only in production
+            sameSite: "None"
+        })
+        return res.status(200).json({ message: "Logout Successfully" })
+    } catch (error) {
+        return res.status(500).json({ message: `Internal server error due to ${error.message}` })
+    }
+}
 
-
-export{registerAdmin}
+export{registerAdmin,adminLogout}

@@ -4,8 +4,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import connectMongodb from "./mongoDb/mongoConnect.js";
 import dotenv from "dotenv";
-import adminRouter from './routes/adminRouter.js';
-// import userRouter from './routes/userRouter.js';
+
 
  
 dotenv.config();
@@ -26,5 +25,4 @@ connectMongodb().then(() => {
         console.log("MONGO db connection failed !!! ", err);
     })
 
-    app.use('/api/v1/admin', adminRouter)
-    // app.use('/api/v1/user', userRouter)
+  

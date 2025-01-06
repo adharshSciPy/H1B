@@ -1,11 +1,14 @@
 import React from "react";
 import "./landingstyle.css";
 import assets from "../assets/chat.png";
+import imgdesign from "../assets/design.png";
 
 function LandingPage() {
   return (
     <>
       <div className="main-container">
+        
+        <div className="white-background">
         <div className="nav-bar">
           <div className="navbar-main">
             <div className="left-contents">
@@ -34,13 +37,19 @@ function LandingPage() {
                 <h1>digital markers</h1>
                 </div>
                 <div className="box-contents-container">
-
+                    demo
                 </div>
               </div>
               
             </div>
           </div>
-          <div className="right-container"></div>
+          <div className="right-container">
+            <img src={imgdesign} alt="" />
+          </div>
+        </div>
+        </div>
+        <div className="middle-box">
+          
         </div>
       </div>
     </>

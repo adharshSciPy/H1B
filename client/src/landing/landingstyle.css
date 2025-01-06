@@ -5,7 +5,9 @@
 }
 .nav-bar{
     width: 100%;
-    height: 80px;    
+    height: 80px; 
+    position: fixed;
+    top: 0;
 }
 .navbar-main{
     display: flex;
@@ -19,7 +21,9 @@
     display: flex;
     align-items: center;   
     width: 30%;
-    justify-content: space-between; 
+    justify-content: space-around; 
+    color: white;
+    font-size:15px;
 }
 .navbar-main .right-contents{
 display: flex;
@@ -35,42 +39,62 @@ gap: 30px;
 }
 
 .navbar-main .right-contents .chat-button{
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
+    background-color: white;
+    border-radius: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
 }
 .navbar-main .right-contents .chat-button .chat-img-container{
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .navbar-main .right-contents .chat-button .chat-img-container img{
-    height: 100%;
-    width: 100%;
+    height: 50%;
+    width: 50%;
     object-fit: cover;
     cursor: pointer;
 }
-.container-main{
-    background-color: #0A090F;
+.white-background{
     width: 100%;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container-main{
+    width: 90%;
+    background-color: #17044d;
+    display: flex;
+
 }
 .container-main .left-container{
-    width: 60%;
+    width: 70%;
+    height: 100%;;
 
 }
 .container-main .left-container .left-contents{
     width: 100%;
-    background-color: red;
-    padding: 100px 50px;
+    padding: 200px 50px 100px 120px;
     
 }
 .container-main .left-container .left-contents .main-contents-container{
-    padding: 40px;
+    width: 100%;
 }
 .container-main .left-container .left-contents .main-contents-container .heading-container{
         width: 100%;
+        margin-left: 50px;
+        
 }
 .container-main .left-container .left-contents .main-contents-container .heading-container h1{
-    font-size: 80px;
+    font-size: 149px;
     color: white;
+    font-weight: 500;
+    line-height: 150px;
 }
 
 
@@ -78,7 +102,25 @@ gap: 30px;
     width: 300px;
     height: 100px;
     background-color: white;
-    margin-top: 50px;
+    margin-top: 80px;
+    border-radius: 20px;
+    margin-left: 50px;
     
 }
- 
+.container-main .right-container{
+    height: auto;
+    width: 30%;
+}
+.container-main .right-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+.middle-box{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 150px;
+    width: 40px;
+    background-color: #17044d;
+}

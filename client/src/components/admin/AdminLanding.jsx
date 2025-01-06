@@ -1,8 +1,15 @@
 import React from 'react'
+import Sidebar from '../sidebar/Sidebar.jsx'
+import "./Adminlanding.css"
 
 function AdminLanding() {
   return (
-    <div>AdminLanding</div>
+    <div className='container'>
+      <Sidebar />
+      <div className="admin-content">
+        <h1>Admin Landing Page</h1>
+      </div>
+    </div>
   )
 }
 

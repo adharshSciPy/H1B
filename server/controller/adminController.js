@@ -1,4 +1,5 @@
 import { Admin } from "../model/adminModel.js";
+import { Collaborator } from "../model/collaboratorModel.js";
 import { passwordValidator } from "../utils/passwordValidator.js";
 import jwt from 'jsonwebtoken';
 
@@ -49,6 +50,48 @@ const registerAdmin=async(req,res)=>{
         
     }
 }
+const adminLogout = async (req, res) => {
+    try {
+        const { refreshToken } = req.cookies;
+        if (!refreshToken) {
+            return res.status(204).json({ message: "Invalid Cookie" })
+        }
+        res.clearCookie("refreshToken", {
+            httpOnly: true,
+            secure: false,//Secure only in production
+            sameSite: "None"
+        })
+        return res.status(200).json({ message: "Logout Successfully" })
+    } catch (error) {
+        return res.status(500).json({ message: `Internal server error due to ${error.message}` })
+    }
+}
 
-
-export{registerAdmin}
+const getCollaborators=async(req,res)=>{
+    try {
+        const allCollaborators=await Collaborator.find();
+        res.status(200).json({message:"All collaborators fetched",data:allCollaborators})
+    } catch (error) {
+        res.status(500).json({message:`Internal server error due to ${error.message}`})
+    }
+}
+const getSingleCollaborator=async(req,res)=>{
+    const{id}=req.body;
+    try {
+        const singleCollaborators=await Collaborator.findById(id);
+        res.status(200).json({message:"Collaborator fetch succesfully",data:singleCollaborators})
+    } catch (error) {
+        res.status(500).json({message:`Internal server error ${error.message}`})
+    }
+}
+const deleteCollaborator=async(req,res)=>{
+    const {id}=req.body;
+    try {
+        const deletedCollaborator=await Collaborator.findByIdAndDelete(id);
+        res.status(200).json({message:"Collaborator deleted succesfully",data:deletedCollaborator})
+    } catch (error) {
+        res.status(500).json({message:`Internal server error ${error.message}`})
+        
+    }
+}
+export{registerAdmin,adminLogout,getCollaborators,getSingleCollaborator,deleteCollaborator}

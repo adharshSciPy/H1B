@@ -34,7 +34,7 @@ function LandingPage() {
             <div className="left-contents">
               <div className="main-contents-container">
                 <div className="heading-container">
-                <h1>digital markers</h1>
+                <h1>digital<br></br> markers</h1>
                 </div>
                 <div className="box-contents-container">
                     demo
@@ -49,7 +49,7 @@ function LandingPage() {
         </div>
         </div>
         <div className="middle-box">
-          
+
         </div>
       </div>
     </>

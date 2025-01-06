@@ -1,28 +1,34 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LandingPage from "./landing/LandingPage.jsx"
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import LandingPage from "./landing/LandingPage.jsx";
 import AdminLanding from "./components/admin/AdminLanding.jsx";
-import { Layout } from "antd"
-
+import { Layout } from "antd";
 
 const { Sider } = Layout;
 
-function App() {
+function AppLayout() {
+  const location = useLocation();
+
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
-    <div className="App">
+    <Layout>
+      {isAdminRoute && <Sider className="sidebar">Sidebar</Sider>}
       <Layout>
-        <Sider className="sidebar">Sidebar</Sider>
-      </Layout>
-      <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-
-          {/* admin */}
-
+          {/* Admin */}
           <Route path="/admin" element={<AdminLanding />} />
-
         </Routes>
-      </BrowserRouter>
-    </div>
+      </Layout>
+    </Layout>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppLayout />
+    </BrowserRouter>
   );
 }
 

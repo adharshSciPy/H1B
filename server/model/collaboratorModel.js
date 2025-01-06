@@ -67,19 +67,19 @@ collaboratorSchema.methods.generateAccessToken = async function () {
 }
 
 // generate refresh token
-// adminSchema.methods.generateRefreshToken = async function () {
-//     return jwt.sign(
-//         {
-//             id: this._id,
-//             email: this.email,
-//             role: this.role,
-//         },
-//         process.env.REFRESH_TOKEN_SECRET,
-//         {
-//             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
-//         }
-//     )
-// }
+collaboratorSchema.methods.generateRefreshToken = async function () {
+    return jwt.sign(
+        {
+            id: this._id,
+            email: this.email,
+            role: this.role,
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        {
+            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+        }
+    )
+}
 
 // matching admin password
 collaboratorSchema.methods.isPasswordCorrect = async function (password) {

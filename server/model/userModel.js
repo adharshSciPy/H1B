@@ -1,5 +1,6 @@
-import mongoose from "mongoose";
+import mongoose,{Schema} from "mongoose";
 import bcrypt from 'bcryptjs';
+import jwt from "jsonwebtoken";
 
 const defaultRole = process.env.USER_ROLE;
 
@@ -8,7 +9,7 @@ const userSchema = new Schema({
     firstName: {
         type: String
     },
-    firstName: {
+    lastName: {
         type: String
     },
     email: {
@@ -24,9 +25,7 @@ const userSchema = new Schema({
         type: Number,
         // 
     },
-    address: {
-        type: String,
-    },
+    
     role: {
         type: Number,
         default: defaultRole
@@ -37,6 +36,37 @@ const userSchema = new Schema({
     }
 },
     { timestamps: true });
+    
+// Generate access token
+userSchema.methods.generateAccessToken = function () {
+    return jwt.sign(
+        {
+            id: this._id,
+            firstName: this.firstName,
+            email: this.email,
+            role: this.role
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: '7d' }
+    );
+};
+// Matching password for login
+userSchema.methods.isPasswordCorrect = async function (password) {
+    return await bcrypt.compare(password, this.password);
+};
+// Generate refresh token
+userSchema.methods.generateRefreshToken = function () {
+    return jwt.sign(
+        {
+            id: this._id,
+            email: this.email,
+            role: this.role
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        { expiresIn: '7d' }
+    );
+};
+
 
     // Hashing password before saving
 userSchema.pre("save", async function (next) {

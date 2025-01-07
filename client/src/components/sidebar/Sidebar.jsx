@@ -6,6 +6,7 @@ import {
     HomeOutlined, UserOutlined, ContainerOutlined, DiffOutlined, UserAddOutlined, SettingOutlined, LogoutOutlined, PushpinOutlined,
     PushpinFilled,
 } from "@ant-design/icons"
+import { NavLink } from 'react-router-dom'
 
 function Sidebar() {
     const [selectedKey, setSelectedKey] = useState("dashboard");
@@ -31,26 +32,26 @@ function Sidebar() {
                                 <img src={Logo} />
                             </div>
                             <Menu.Item key='dashboard' icon={<HomeOutlined />}>
-                                {isPinned && "Dashboard"}
+                                <NavLink to="/admin">{isPinned && "Dashboard"}</NavLink>
                                 <span></span>
                             </Menu.Item>
                             <Menu.Item key='profile' icon={<UserOutlined />}>
-                                {isPinned && "Profile"}
+                                <NavLink to="/profile">{isPinned && "Profile"}</NavLink>
                                 <span></span>
                             </Menu.Item>
                             <Menu.Item key='listing' icon={<ContainerOutlined />}>
-                                {isPinned && "Listing"}
+                                <NavLink to="/listing">{isPinned && "Listing"}</NavLink>
                                 <span></span>
                             </Menu.Item>
                             <Menu.Item key='blogs' icon={<DiffOutlined />}>
-                                {isPinned && "Blogs"}
+                                <NavLink to="/blogs">{isPinned && "Blogs"}</NavLink>
                                 <span></span>
                             </Menu.Item>
                             <Menu.Item key='socialmedia' icon={<UserAddOutlined />}>
-                                {isPinned && "Social Media"}
+                                <NavLink to="/socialmedia">{isPinned && "Social Media"}</NavLink>
                                 <span></span>
                             </Menu.Item><Menu.Item key='settings' icon={<SettingOutlined />}>
-                                {isPinned && "Settings"}
+                                <NavLink to="/settings">{isPinned && "Settings"}</NavLink>
                                 <span></span>
                             </Menu.Item><Menu.Item key='signout' icon={<LogoutOutlined />}>
                                 {isPinned && "Signout"}

@@ -65,5 +65,45 @@ const adminLogout = async (req, res) => {
         return res.status(500).json({ message: `Internal server error due to ${error.message}` })
     }
 }
+    const editAdmin = async (req, res) => {
+        const { id } = req.params;
+        // const file = req.file;
+        const { firstName,lastName,gender,country,language} = req.body;
+    
+        // if (!file) {
+        //     return res.status(400).json({ error: "No file uploaded" });
+        // }
+    
+        try {
+            // Update admin record with the provided data
+            const editResult = await Admin.findByIdAndUpdate(
+                id,
+                {
+                    firstName,
+                    // image: `/uploads/${file.filename}`,
+                    lastName,
+                    gender,
+                    country,
+                    language
+                },
+                { new: true } // Return the updated document
+            );
+    
+            if (!editResult) {
+                return res.status(404).json({ error: "Admin not found" });
+            }
+    
+            res.status(200).json({
+                message: "Updated successfully",
+                data: editResult,
+            });
+    
+        } catch (error) {
+            console.error('Error:', error);
+            res.status(500).json({ error: error.message });
+        }
+    };
+    
 
-export{registerAdmin,adminLogout}
+
+export{registerAdmin,adminLogout,editAdmin}

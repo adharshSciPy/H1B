@@ -1,4 +1,4 @@
-.container {
+.settingContainer {
   display: grid;
   grid-template-columns: 0fr 2fr;
 }
@@ -7,4 +7,42 @@
   padding: 20px;
   text-align: center;
   border-radius: 5px;
+}
+
+.settings-mainHeading {
+  display: flex;
+  justify-content: flex-start;
+  font-size: larger;
+  margin-top: 50px;
+}
+
+/* Styling for the search bar */
+.settings-searchBar {
+  display: flex;
+  align-items: center;
+  background-color: #00274d; /* Navy blue background */
+  border-radius: 10px;
+  padding: 5px 15px;
+  width: 100%;
+  max-width: 65%;
+  margin-top: 30px ;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Search input field */
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #ffffff; /* White text */
+  font-size: 16px;
+  padding: 10px;
+  outline: none;
+  margin-left: 10px;
+}
+
+/* Search icon */
+.search-icon {
+  color: #ffffff; /* White icon */
+  font-size: 18px;
 }

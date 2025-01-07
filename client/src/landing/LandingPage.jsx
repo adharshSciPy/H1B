@@ -230,7 +230,46 @@ function LandingPage() {
       <section>
         <div className="container-8">
           <div className="main-container">
-            hi
+            <div className="heading-container">
+              <h1>DEMO CONTENT</h1>
+            </div>
+            <div className="text-container"><p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+               Officiis eos quam unde praesentium natus necessitatibus nihil itaque expedita ex minus iure, 
+              cupiditate molestias autem animi vitae
+              </p></div>
+            <div className="item-container">
+              <div className="card">
+                <div className="icon"><img src={assets} alt="" /></div>
+                <div className="heading"><h3>Demo Content</h3></div>
+                <div className="text"><p>
+                lorem lorem this is a demo content lorem lorem this is a demo content</p> </div>
+              </div>
+              <div className="card">
+                <div className="icon"><img src={assets} alt="" /></div>
+                <div className="heading"><h3>Demo Content</h3></div>
+                <div className="text"><p>
+                lorem lorem this is a demo content lorem lorem this is a demo content</p> </div>
+              </div>
+              <div className="card">
+                <div className="icon"><img src={assets} alt="" /></div>
+                <div className="heading"><h3>Demo Content</h3></div>
+                <div className="text"><p>
+                lorem lorem this is a demo content lorem lorem this is a demo content</p> </div>
+              </div>
+              <div className="card">
+                <div className="icon"><img src={assets} alt="" /></div>
+                <div className="heading"><h3>Demo Content</h3></div>
+                <div className="text"><p>
+                lorem lorem this is a demo content lorem lorem this is a demo content</p> </div>
+              </div>
+              <div className="card">
+                <div className="icon"><img src={assets} alt="" /></div>
+                <div className="heading"><h3>Demo Content</h3></div>
+                <div className="text"><p>
+                lorem lorem this is a demo content lorem lorem this is a demo content</p> </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

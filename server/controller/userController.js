@@ -2,6 +2,7 @@ import { User } from "../model/userModel.js";
 import { Admin } from "../model/adminModel.js";
 import jwt from "jsonwebtoken";
 import { passwordValidator } from "../utils/passwordValidator.js";
+import { Collaborator } from "../model/collaboratorModel.js";
 
 const registerUser = async (req, res) => {
     const { firstName,lastName, email, password, phone } = req.body;
@@ -82,11 +83,16 @@ const adminlogin = async (req, res) => {
         }
 
         let admin = await Admin.findOne({ email: email });
-        let role = 500;
+        let role = 500; // Role for Admin
 
         if (!admin) {
             admin = await User.findOne({ email: email });
-            role = 300;
+            role = 300; // Role for User
+        }
+
+        if (!admin) {
+            admin = await Collaborator.findOne({ email: email });
+            role = 400; // Role for Collab
         }
 
         if (!admin) {
@@ -98,9 +104,7 @@ const adminlogin = async (req, res) => {
             return res.status(401).json({ message: 'Incorrect Password' });
         }
 
-
         const accessToken = await admin.generateAccessToken();
-
         const refreshToken = await admin.generateRefreshToken();
 
         // Store refresh token in a cookie
@@ -114,7 +118,6 @@ const adminlogin = async (req, res) => {
         return res.status(200).json({
             message: `${role} login successful`,
             role,
-
             token: accessToken,
             admin,
         });
@@ -124,6 +127,7 @@ const adminlogin = async (req, res) => {
         return res.status(500).json({ message: `Internal server error: ${error.message}` });
     }
 };
+
 
 // @POST
 // user/refresh

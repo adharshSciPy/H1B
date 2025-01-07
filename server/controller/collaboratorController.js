@@ -45,4 +45,39 @@ const addCollaborator=async(req,res)=>{
         
     }
 }
-export{addCollaborator}
+const editCollaborator=async(req,res)=>{
+    const {id}=req.params;
+    const file=req.file;
+    const { firstName,
+        lastName,
+        gender,
+        country,
+        email,
+        language}=req.body;
+        if (!file) {
+            return res.status(400).json({ error: "No file uploaded" });
+        }
+    
+
+    try {
+        const editedCollaborator=await Collaborator.findByIdAndUpdate(id,
+            {
+                firstName,
+                lastName,
+                gender,country,
+                language,
+                email,
+                image: `/uploads/${file.filename}`
+
+            },{new:true}
+        );
+        if(!editedCollaborator){
+            return res.status(401).json({message:"Collaborator not found"});
+        }
+        return res.status(200).json({message:"Collaborator edited succesfully",data:editedCollaborator});
+    } catch (error) {
+        return res.status(500).json({message:`Internal server error${error.message}`})
+    }
+
+}
+export{addCollaborator,editCollaborator}

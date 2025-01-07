@@ -124,3 +124,110 @@ gap: 30px;
     width: 40px;
     background-color: #17044d;
 }
+.container-2{
+    width:100%;
+    padding: 50px 100px 50px 100px;
+    background-color: white;
+}
+.container-2 .sub-container{
+    width: 100%;
+
+}
+.container-2 .sub-container .heading-contents h1{
+    font-size: 50px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.container-2 .sub-container .heading-contents{
+    width: 70%;
+    margin: auto;
+}
+.container-2 .sub-container .text-contents{
+    width: 55%;
+    padding: 20px 30px 0px 30px;
+    margin: auto;
+}
+.container-2 .sub-container .text-contents p{
+    font-size: 20px;
+    text-align: center;
+}
+
+.container-3{
+    background-color: white;
+    display: flex;
+    position: relative;
+}
+.container-3 .design-container{
+    width: 150px;
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: auto;
+    bottom: 0;
+}
+.container-3 .design-container img{
+    height: 100%;
+    width: 100%;
+}
+
+
+.container-3 .contents-container{
+    width: 90%;
+    margin: auto;
+    background-color: #17044d;
+    padding: 60px 100px 0px 100px;
+    border-radius: 20px;
+}
+.container-3 .contents-container .heading{
+    padding-left: 50px;
+}
+.container-3 .contents-container .heading h2{
+    font-size: 45px;
+    font-weight: 400;
+    color: white;
+    
+}
+
+.container-3 .contents-container .text-content{
+    padding-left: 50px;
+    width: 80%;
+    padding-top: 50px;
+
+}
+.container-3 .contents-container .text-content p{
+    font-size:18px;
+    color: white;
+    font-weight: 100;
+}
+.container-3 .contents-container .items{
+    width: 80%;
+    padding-top:50px;
+    padding-left: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.container-3 .contents-container .items div{
+    display: flex;
+    align-items: center;
+}
+.container-3 .contents-container .items div p{
+    color:white;
+    font-size: 20px;
+    padding-left: 10px;
+}
+ 
+.container-3 .contents-container .button-div{
+    padding-left: 50px;
+    padding-top: 80px;
+    
+}
+
+.container-3 .contents-container .button-div button{
+    padding: 15px 30px;
+    border-radius:30px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, #f03ced, #6b3df5);
+ 
+}

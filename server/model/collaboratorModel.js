@@ -23,9 +23,9 @@ const collaboratorSchema = new Schema({
     gender:{
         type:String
     },
-    // image:{
-    //     type:String
-    // },
+    image:{
+        type:String
+    },
     country:{
         type:String
     },

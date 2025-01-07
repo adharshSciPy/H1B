@@ -47,16 +47,17 @@ const addCollaborator=async(req,res)=>{
 }
 const editCollaborator=async(req,res)=>{
     const {id}=req.params;
-    // const {file}=req.file;
+    const file=req.file;
     const { firstName,
         lastName,
         gender,
         country,
         email,
         language}=req.body;
-        // if(!file){
-        //     return res.status(400).json({error:"No file uploaded"});
-        // }
+        if (!file) {
+            return res.status(400).json({ error: "No file uploaded" });
+        }
+    
 
     try {
         const editedCollaborator=await Collaborator.findByIdAndUpdate(id,
@@ -65,7 +66,8 @@ const editCollaborator=async(req,res)=>{
                 lastName,
                 gender,country,
                 language,
-                email
+                email,
+                image: `/uploads/${file.filename}`
 
             },{new:true}
         );

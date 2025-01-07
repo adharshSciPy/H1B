@@ -1,12 +1,13 @@
 import {Router} from 'express';
 import { registerAdmin,adminLogout,editAdmin, getCollaborators, getSingleCollaborator, deleteCollaborator} from '../controller/adminController.js';
+import upload from '../multer/multer.js';
 const adminRouter=Router();
 adminRouter.route('/registeradmin').post(registerAdmin);
 adminRouter.route('/logout').post(adminLogout);
 adminRouter.route('/getallcollaborators').get(getCollaborators);
 adminRouter.route('/getsinglecollaborator').get(getSingleCollaborator);
 adminRouter.route('/deletecollaborator').delete(deleteCollaborator);
-adminRouter.route('/editadmin/:id').patch(editAdmin);
+adminRouter.route('/editadmin/:id').patch(upload.single("image"),editAdmin);
 
 
 

@@ -68,12 +68,12 @@ const adminLogout = async (req, res) => {
 }
     const editAdmin = async (req, res) => {
         const { id } = req.params;
-        // const file = req.file;
+        const file = req.file;
         const { firstName,lastName,gender,country,language} = req.body;
     
-        // if (!file) {
-        //     return res.status(400).json({ error: "No file uploaded" });
-        // }
+        if (!file) {
+            return res.status(400).json({ error: "No file uploaded" });
+        }
     
         try {
             // Update admin record with the provided data
@@ -81,7 +81,7 @@ const adminLogout = async (req, res) => {
                 id,
                 {
                     firstName,
-                    // image: `/uploads/${file.filename}`,
+                    image: `/uploads/${file.filename}`,
                     lastName,
                     gender,
                     country,

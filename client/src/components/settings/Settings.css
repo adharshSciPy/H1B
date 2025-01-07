@@ -3,12 +3,8 @@
   grid-template-columns: 0fr 2fr;
 }
 
-.admin-content {
+.settings-content {
   padding: 20px;
   text-align: center;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
 }

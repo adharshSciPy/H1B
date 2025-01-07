@@ -62,6 +62,9 @@ gap: 30px;
     object-fit: cover;
     cursor: pointer;
 }
+.container-1{
+    position: relative;
+}
 .white-background{
     width: 100%;
     background-color:white;
@@ -391,7 +394,7 @@ padding-right:70px
     
 }
 .container-6{
-    padding: 20px 0px;
+    padding: 20px 0px 120px 0px;
     width: 100%;
     background-color: white;
     overflow: hidden;
@@ -474,5 +477,36 @@ text-align: center;
     cursor: pointer;
     background: linear-gradient(90deg, #f03ced, #6b3df5);
 }
-
-
+.container-7{
+    width: 100%;
+    padding: 50px 0px 60px 0px;
+    background-color: rgb(243, 243, 243);
+}
+.container-7 .main-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    
+}
+.container-7 .main-container .head-container h3{
+    font-size: 30px;
+    text-align: center;
+}
+.container-7 .main-container .items{
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: space-between;
+}
+.container-7 .main-container .demo{
+    height: 100px;
+    width: 100px;
+    border: 1px solid red;
+    border-radius: 10px;
+}

@@ -206,6 +206,27 @@ function LandingPage() {
           </div>
         </div>
       </secction>
+      <section>
+        <div className="container-7">
+          <div className="main-container">
+            <div className="head-container">
+              <h3>THIS IS A<br></br> DEMO CONTENT</h3>
+            </div>
+            <div className="items">
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+              <div className="demo"></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

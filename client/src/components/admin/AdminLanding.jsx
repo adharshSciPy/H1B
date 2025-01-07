@@ -5,7 +5,7 @@ import "./Adminlanding.css"
 function AdminLanding() {
   return (
     <div className='container'>
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className="admin-content">
         <h1>Admin Dashboard</h1>
       </div>

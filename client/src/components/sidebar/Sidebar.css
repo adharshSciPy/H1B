@@ -1,7 +1,6 @@
-.container{
+.container {
   display: flex;
 }
-
 
 .sidebar {
   height: 100vh;
@@ -31,6 +30,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  background-color: #ebf3f5;
 }
 
 .logo img {
@@ -75,9 +75,8 @@
 
 /* Selected Menu Item */
 .menu .ant-menu-item-selected {
-  background-color: #08265F !important; /* Highlight selected item */
+  background-color: #08265f !important; /* Highlight selected item */
 }
-
 
 .menu .ant-menu-item:hover {
   background-color: #d6e7ea;
@@ -86,4 +85,8 @@
 .menu .ant-menu-item-selected {
   background-color: #08265f !important;
   color: #ebf3f5 !important;
+}
+
+.menu .ant-tooltip {
+  z-index: 9999;
 }

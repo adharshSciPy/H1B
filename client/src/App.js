@@ -7,7 +7,6 @@ import Listing from "./components/listing/Listing.jsx";
 import Blogs from "./components/blogs/Blogs.jsx";
 import Socialmedia from "./components/socialmedia/Socialmedia.jsx";
 import Settings from "./components/settings/Settings.jsx";
-import "./App.css"
 
 function App() {
   return (

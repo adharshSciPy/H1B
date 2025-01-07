@@ -7,12 +7,18 @@ import dotenv from "dotenv";
 import adminRouter from "./routes/adminRouter.js";
 import userRouter from "./routes/userRouter.js";
 import collaboratorRouter from "./routes/collaboratorRouter.js";
+import { fileURLToPath } from "url";
+import guestRouter from "./routes/guestRouter.js";
+
 
 dotenv.config();
 const app = express();
 dotenv.config({
   path: "./env",
 });
+const _filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(_filename);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(cors());
@@ -30,6 +36,9 @@ connectMongodb()
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/collaborator", collaboratorRouter);
+app.use("/api/v1/guest", guestRouter);
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
 
   

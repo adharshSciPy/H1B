@@ -495,18 +495,30 @@ text-align: center;
     font-size: 30px;
     text-align: center;
 }
-.container-7 .main-container .items{
+.container-7 .main-container .items {
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 100%;
+    justify-items: center; 
+  align-items: center; 
+  gap: 50px;
+  }
+.container-7 .main-container .demo{
+    background-color: lightblue;
+    height: 100px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+
+}
+.container-8{
+    width: 100%;
+    padding: 40px 0px;
+}
+.container-8 .main-container{
     width: 80%;
     margin: auto;
-    padding-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 80px;
-    justify-content: space-between;
-}
-.container-7 .main-container .demo{
-    height: 100px;
-    width: 100px;
-    border: 1px solid red;
+    background-color: #08265f;
     border-radius: 10px;
 }

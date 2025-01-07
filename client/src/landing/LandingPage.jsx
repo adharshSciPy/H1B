@@ -227,6 +227,13 @@ function LandingPage() {
           </div>
         </div>
       </section>
+      <section>
+        <div className="container-8">
+          <div className="main-container">
+            hi
+          </div>
+        </div>
+      </section>
     </>
   );
 }

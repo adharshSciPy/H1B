@@ -5,7 +5,7 @@ import Sidebar from '../sidebar/Sidebar'
 function Socialmedia() {
   return (
     <div className='container'>
-    {/* <Sidebar /> */}
+    <Sidebar />
     <div className="social-content">
       <h1>Social Media</h1>
     </div>

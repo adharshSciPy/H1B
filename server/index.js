@@ -8,6 +8,7 @@ import adminRouter from "./routes/adminRouter.js";
 import userRouter from "./routes/userRouter.js";
 import collaboratorRouter from "./routes/collaboratorRouter.js";
 import { fileURLToPath } from "url";
+import guestRouter from "./routes/guestRouter.js";
 
 
 dotenv.config();
@@ -35,6 +36,8 @@ connectMongodb()
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/collaborator", collaboratorRouter);
+app.use("/api/v1/guest", guestRouter);
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
 

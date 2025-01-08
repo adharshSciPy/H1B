@@ -64,11 +64,14 @@ function UserForm() {
           <h4>MY EMAIL ADDRESS</h4>
           <button className="save-button">Save</button>
         </div>
-        <div className="email-item1">
-            <input type="checkbox" />
-              <p>alexarawles@gmail.com</p>
-              <span>1 month ago</span>
-          </div>
+        <div class="email-item1">
+  <i class="mail-icon"></i>
+  <div class="email-text">
+    <p>alexarawles@gmail.com</p>
+    <span>1 month ago</span>
+  </div>
+</div>
+
           <button className="add-email-button1">+ Add Email Address</button>
       </div>
     </div>

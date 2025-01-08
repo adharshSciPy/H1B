@@ -1,13 +1,17 @@
 import React from 'react'
 import "./Profile.css"
 import Sidebar from '../sidebar/Sidebar'
+import Header from '../header/Header'
+import UserForm from '../../userform/Userform'
 
 function Profile() {
   return (
     <div className='container'>
       <Sidebar />
       <div className="profile-content">
-        <h1>Profile</h1>
+        <Header/>
+        <UserForm/>
+        
       </div>
     </div>
   )

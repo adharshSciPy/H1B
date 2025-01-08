@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import "./Settings.css";
 import Sidebar from '../sidebar/Sidebar';
 import Header from '../header/Header';
+import { CloseOutlined } from '@ant-design/icons';
+
 
 function Settings() {
   const collaborators = [1, 2, 3, 4];
@@ -38,16 +40,22 @@ function Settings() {
 
       {/* Popup div */}
       {isPopupVisible && (
-        <div className="dummydiv">
-          <div className="dummydiv-content">
+        <div className="settings-modaldiv">
+             
+          <div className="settingsModalDiv-content">
+            {/* <div className="settings-popupCloseButton"> */}
+            <CloseOutlined  onClick={() => setIsPopupVisible(false)} className="settings-popupCloseButton" />
+
+            {/* </div> */}
+
             <h2>Edit Collaborator</h2>
-            <p>Some content for editing...</p>
-            <button
-              className="dummydiv-closeButton"
-              onClick={() => setIsPopupVisible(false)}
-            >
-              Close
-            </button>
+           <form className='settings-collaboratorEditForm'>
+           <div className="settings-formInputs">
+            
+            
+           </div>
+           </form>
+          
           </div>
         </div>
       )}

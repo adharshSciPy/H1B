@@ -1,6 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: 0fr 2fr;
+  /* background-color: aquamarine; */
 }
 
 .listing-content {

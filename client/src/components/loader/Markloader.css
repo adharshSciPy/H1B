@@ -1,0 +1,30 @@
+.performance-container {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .rating-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  
+  .rating-fill {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .performance-mark {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

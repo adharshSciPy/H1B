@@ -2,7 +2,8 @@
   display: flex;
   border-radius: 20px;
   margin-right: 10px;
-  background-color: #ffffff;
+  background-color: #ebf3f5 ;
+
 }
 
 .sidebar {
@@ -45,7 +46,10 @@
   opacity: 0;
   visibility: hidden;
 }
-
+.pin-pin{
+  background-color: #ebf3f5;
+  border-radius: 20px;
+}
 .pin-button {
   margin: 10px;
   align-self: flex-end;

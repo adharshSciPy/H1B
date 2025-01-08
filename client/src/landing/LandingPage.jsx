@@ -370,7 +370,7 @@ function LandingPage() {
                   <li><p>DEMO CONTENT</p></li>
                   <li><p>DEMO CONTENT</p></li>
                   <li><p>DEMO CONTENT</p></li>
-                  <li><p>DEMO CONTENT</p></li>
+                  <li><p>DEM  O CONTENT</p></li>
 
 
                 </ul>

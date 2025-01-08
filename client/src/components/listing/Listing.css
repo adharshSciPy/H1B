@@ -1,11 +1,120 @@
 .container {
   display: grid;
   grid-template-columns: 0fr 2fr;
-  /* background-color: aquamarine; */
+}
+.page-heading{
+  display: flex;
+  align-items: flex-start;
+  margin: 40px 0px;
+}
+.page-heading h1{
+  font-size: 50px;
+  color: #00274d;
 }
 
 .listing-content {
-  padding: 20px;
+  padding: 20px ;
   text-align: center;
   border-radius: 5px;
+}
+.list-button-div{
+  padding: 20px;
+  display: flex;  
+  width: 25%;
+  display: flex;
+  background-color: #00274d;
+  margin-top: 20px;
+  border-radius:10px ;
+}
+.list-button-1{
+  width: 50%;
+  padding:15px 25px;
+  color: #ffffff;
+  border-style: none;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  border-right: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list-button{
+  width: 50%;
+  padding:15px 25px;
+  color: #ffffff;
+  border-style: none;
+  font-weight: 600;
+  cursor: pointer;
+  background-color:transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table-container {
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  overflow-x: auto;
+  background-color: #00274d;
+  margin-top:20px;
+}
+
+.performance-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: #00274d;
+}
+
+.performance-table th,
+.performance-table td {
+  padding: 10px 15px;
+  color: white;
+}
+.loader-header{
+  vertical-align: center;
+  text-align: center;
+}
+.th-name{
+  vertical-align: center;
+  text-align: center;
+}
+.th-rank{
+  vertical-align: center;
+  text-align: center;
+}
+.performance-table th {
+  font-weight: bold;
+}
+
+
+.loader-bar {
+  width: 50%;
+  height: 5px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-fill {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+.loader-list-td{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table-heading{
+  display: flex;
+  align-items: flex-start;
+  margin: 20px 0px 10px 10px;
+  color: white;
+}
+.table-heading h1{
+  font-weight: 300  ;
+  font-size: 30px;
 }

@@ -7,6 +7,7 @@ import Blogs from "./components/blogs/Blogs.jsx";
 import Socialmedia from "./components/socialmedia/Socialmedia.jsx";
 import Settings from "./components/settings/Settings.jsx";
 
+
 function App() {
   return (
     <div className="App">

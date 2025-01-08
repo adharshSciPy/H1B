@@ -1,12 +1,21 @@
-.settingContainer {
+.settingsContainer {
   display: grid;
   grid-template-columns: 0fr 2fr;
+  border: 30px solid #00274d;
+  background-color: #00274d;
+
+ 
 }
+
 
 .settings-content {
   padding: 20px;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 20px;
+  /* border: 30px solid #00274d; */
+  background-color: #ffffff;
+  
+  
 }
 
 .settings-mainHeading {
@@ -45,4 +54,59 @@
 .search-icon {
   color: #ffffff; /* White icon */
   font-size: 18px;
+}
+.settings-buttonDiv{
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 20px;
+  
+}
+.settings-button{
+  padding:15px 25px;
+  background-color: #00274d;
+  color: #ffffff;
+  border-radius: 5px;
+  border-style: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.settings-collaboratorList{
+  display: flex;
+  flex-direction: column;
+  margin-top:3.5rem;
+  width: 100%;
+  gap: 18px;
+  
+
+}
+.settings-singleCollaborator{
+  width: 100%;
+  min-height:50px ;
+  background-color: #00274d;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.settings-listHeading{
+  color: #ffffff;
+  font-size: medium;
+  padding-left: 10px;
+}
+.settings-collaboratorButtons{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  align-items: center;
+  
+}
+.settings-collaboratorEdit,.settings-collaboratorDelete{
+  padding: 10px;
+  background-color: transparent;
+  color: #ffffff;
+  border-style: none;
+  cursor: pointer;
+  font-size: small;
+
 }

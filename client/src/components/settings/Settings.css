@@ -110,3 +110,38 @@
   font-size: small;
 
 }
+.dummydiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dummydiv-content {
+  background-color: #ffffff; /* White background for the modal */
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.dummydiv-closeButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #00274d;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dummydiv-closeButton:hover {
+  background-color: #004080; /* Slightly lighter shade on hover */
+}

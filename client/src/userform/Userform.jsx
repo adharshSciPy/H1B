@@ -12,18 +12,19 @@ function UserForm() {
     
     <div className="outer-box">
       <div className="form-container">
-        <div className="profile-header">
-          <img
-            src="https://via.placeholder.com/50"
-            alt="Profile"
-            className="profile-picture"
-          />
-          <div className="profile-info">
-            <h3>Alexa Rawles</h3>
-            <p>alexarawles@gmail.com</p>
-          </div>
-          <button className="edit-button">Edit</button>
-        </div>
+      <div className="profile-header">
+  <img
+    src="https://via.placeholder.com/50"
+    alt="Profile"
+    className="profile-picture"
+  />
+  <div className="profile-info">
+    <h3>Alexa Rawles</h3>
+    <p>alexarawles@gmail.com</p>
+  </div>
+</div>
+
+
         <form className="form-grid">
           <label>
             First name  :

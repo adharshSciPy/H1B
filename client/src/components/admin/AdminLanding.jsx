@@ -1,16 +1,17 @@
-import React from 'react'
-import Sidebar from '../sidebar/Sidebar.jsx'
-import "./Adminlanding.css"
+import React from "react";
+import Sidebar from "../sidebar/Sidebar.jsx";
+import "./Adminlanding.css";
+import Header from "../header/Header";
 
 function AdminLanding() {
   return (
-    <div className='container'>
+    <div className="settingsContainer">
       <Sidebar />
-      <div className="admin-content">
-        <h1>Admin Dashboard</h1>
+      <div className="settings-content">
+        <Header />
       </div>
     </div>
-  )
+  );
 }
 
-export default AdminLanding
+export default AdminLanding;

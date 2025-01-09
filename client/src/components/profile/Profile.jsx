@@ -1,20 +1,21 @@
-import React from 'react'
-import "./Profile.css"
-import Sidebar from '../sidebar/Sidebar'
-import Header from '../header/Header'
-import UserForm from '../../userform/Userform'
+import React from "react";
+import "./Profile.css";
+import Sidebar from "../sidebar/Sidebar";
+import Header from "../header/Header";
+import UserForm from "../../userform/Userform";
 
 function Profile() {
   return (
-    <div className='container'>
+    <div className="settingsContainer">
       <Sidebar />
-      <div className="profile-content">
-        <Header/>
-        <UserForm/>
-        
+      <div className="settings-content">
+        <div className="profile-content">
+          <Header />
+          <UserForm />
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Profile
+export default Profile;

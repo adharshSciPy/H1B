@@ -1,23 +1,27 @@
+body{
+  overflow: hidden;
+}
 .settingsContainer {
   display: grid;
   grid-template-columns: 0fr 2fr;
   border: 30px solid #00274d;
   background-color: #00274d;
-
- 
+  /* overflow: scroll; */
 }
-
 
 .settings-content {
   padding: 20px;
   text-align: center;
   border-radius: 20px;
-  /* border: 30px solid #00274d; */
   background-color: #ffffff;
-  
-  
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  height: 100vh; /* Full page height */
 }
-
+.settings-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
 .settings-mainHeading {
   display: flex;
   justify-content: flex-start;
@@ -25,44 +29,14 @@
   margin-top: 50px;
 }
 
-/* Styling for the search bar */
-.settings-searchBar {
-  display: flex;
-  align-items: center;
-  background-color: #00274d; /* Navy blue background */
-  border-radius: 10px;
-  padding: 5px 15px;
-  width: 100%;
-  max-width: 65%;
-  margin-top: 30px ;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Search input field */
-.search-input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  color: #ffffff; /* White text */
-  font-size: 16px;
-  padding: 10px;
-  outline: none;
-  margin-left: 10px;
-}
-
-/* Search icon */
-.search-icon {
-  color: #ffffff; /* White icon */
-  font-size: 18px;
-}
-.settings-buttonDiv{
+.settings-buttonDiv {
   display: flex;
   justify-content: flex-start;
   padding-top: 20px;
-  
 }
-.settings-button{
-  padding:15px 25px;
+
+.settings-button {
+  padding: 15px 25px;
   background-color: #00274d;
   color: #ffffff;
   border-radius: 5px;
@@ -70,109 +44,69 @@
   font-weight: 600;
   cursor: pointer;
 }
-.settings-collaboratorList{
+
+.settings-collaboratorList {
   display: flex;
   flex-direction: column;
-  margin-top:3.5rem;
-  width: 100%;
+  margin-top: 3.5rem;
   gap: 18px;
-  
-
+  /* overflow-y: auto; */
+  max-height: 300px; /* Set a height limit */
+  padding-bottom: 150px; /* Create space for the form */
 }
-.settings-singleCollaborator{
+
+.settings-singleCollaborator {
   width: 100%;
-  min-height:50px ;
+  min-height: 50px;
   background-color: #00274d;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.settings-listHeading{
+
+.settings-listHeading {
   color: #ffffff;
   font-size: medium;
   padding-left: 10px;
 }
-.settings-collaboratorButtons{
+
+.settings-collaboratorButtons {
   display: flex;
   justify-content: space-between;
   gap: 20px;
   padding: 10px;
   align-items: center;
-  
 }
-.settings-collaboratorEdit,.settings-collaboratorDelete{
+
+.settings-collaboratorEdit,
+.settings-collaboratorDelete {
   padding: 10px;
   background-color: transparent;
   color: #ffffff;
   border-style: none;
   cursor: pointer;
   font-size: small;
-
-}
-.settings-modaldiv {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.616); /* Semi-transparent background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
 }
 
-.settingsModalDiv-content {
-  background-color: #ffffff; /* White background for the modal */
-  padding: 20px;
+/* Bottom form */
+.settings-bottomForm {
+  margin-top: 2rem;
+  /* padding: 20px; */
+  padding-right: 30px;
+  background-color: #ffff;
   border-radius: 10px;
-  width: 70%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
   position: relative;
-  /* background-image: -moz-radial-gradient(circle, white, #00274d); */
-  background-image: -webkit-radial-gradient(circle, #3a76b2, #00274d);
-  /* background-image: radial-gradient(circle, white, #00274d); */
-  }
-
-/* .dummydiv-closeButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #00274d;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-.dummydiv-closeButton:hover {
-  background-color: #004080; 
-} */
-.settings-popupCloseButton {
+.close-icon-wrapper {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 10px;
-  background-color: #00274d; /* Same as the body background */
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   font-size: 18px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
-}
-
-.settings-popupCloseButton:hover {
-  background-color: #004080; /* Slightly lighter shade on hover */
-}
-.settings-collaboratorEditForm{
-  width: 100%;
-  height: 200px;
-  background-color:#00274d;
-
+  color: #ffffff;
+  border-radius: 100%;
+  padding: 7px;
+  background-color: #00274d;
 }

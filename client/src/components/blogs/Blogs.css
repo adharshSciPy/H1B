@@ -8,3 +8,22 @@
   text-align: center;
   border-radius: 5px;
 }
+.blog-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: #00274d;
+}
+.blog-table th,
+.blog-table td {
+  padding: 10px 15px;
+  color: white;
+}
+.blog-table-container {
+  width: 85%;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  overflow-x: auto;
+  background-color: #00274d;
+  margin-top:20px;
+}

@@ -8,10 +8,7 @@ import Markloader from "../loader/Markloader";
 function Listing() {
   const collaborators = [1, 2, 3, 4];
   const data = [
-    { name: "Alice", performance: 85, rank: 1 },
-    { name: "Bob", performance: 72, rank: 2 },
-    { name: "Charlie", performance: 65, rank: 3 },
-    { name: "Diana", performance: 50, rank: 4 },
+    { name: "Alice", performance: 85, rank: 1 }
   ];
   return (
     <div className="settingsContainer">
@@ -76,8 +73,6 @@ function Listing() {
           ))}
         </div>
       </div>
-      {/* dummy div to check the onClick */}
-      <div className="dummydiv">haiii</div>
     </div>
   );
 }

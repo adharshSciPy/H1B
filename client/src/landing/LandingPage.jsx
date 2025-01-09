@@ -18,9 +18,7 @@ function LandingPage() {
                   <div className="logo">
                     <a href="">LOGO</a>
                   </div>
-                  <div className="text-item">
-                    <a href="">lorem demo content is here</a>
-                  </div>
+                  
                 </div>
                 <div className="right-contents">
                   <div className="button">
@@ -370,7 +368,7 @@ function LandingPage() {
                   <li><p>DEMO CONTENT</p></li>
                   <li><p>DEMO CONTENT</p></li>
                   <li><p>DEMO CONTENT</p></li>
-                  <li><p>DEM  O CONTENT</p></li>
+                  <li><p>DEMO CONTENT</p></li>
 
 
                 </ul>

@@ -18,10 +18,7 @@
   margin: auto;
 }
 .navbar-main .left-contents {
-  display: flex;
-  align-items: center;
   width: 30%;
-  justify-content: space-around;
   font-size: 15px;
 }
 .navbar-main .left-contents a {

@@ -1,82 +1,104 @@
 /* Main container for the header */
 .headerMain {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Align items vertically */
-    padding: 10px 20px;
-  }
-  
-  /* Styling for the search bar */
-  .settingsSearchBar {
-    display: flex;
-    align-items: center;
-    background-color: #00274d; /* Navy blue background */
-    border-radius: 10px;
-    padding: 5px 15px;
-    width: 100%;
-    max-width: 65%;
-    margin-top: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Search input field */
-  .searchInput {
-    flex: 1;
-    border: none;
-    background: transparent;
-    color: #ffffff; /* White text */
-    font-size: 16px;
-    padding: 10px;
-    outline: none;
-    margin-left: 10px;
-  }
-  
-  /* Search icon */
-  .searchIcon {
-    color: #ffffff; /* White icon */
-    font-size: 18px;
-  }
-  
-  /* Right section (bell + avatar) */
-  .rightSection {
-    display: flex;
-    align-items: center; /* Align bell and avatar vertically */
-    gap: 15px; /* Add space between bell and avatar */
-    margin-top: 30px;
-  }
-  
-  /* Bell icon styling
-  .bellIcon {
-    color: #00274d; 
-    font-size: 24px;
-    cursor: pointer;
-  } */
-  
-  /* Avatar div styling */
-  .avatarDiv {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #00274d;
-  }
-  /* Bell icon styling */
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 5px;
+}
+
+
+.settingsSearchBar {
+  display: flex;
+  align-items: center;
+  background-color: #00274d; 
+  border-radius: 10px;
+  padding: 5px 15px;
+  width: 100%;
+  max-width: 65%;
+  margin-top: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #ffffff; 
+  font-size: 16px;
+  padding: 10px;
+  outline: none;
+  margin-left: 10px;
+}
+
+.searchIcon {
+  color: #ffffff; 
+  font-size: 18px;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center; 
+  gap: 15px; 
+  margin-top: 30px;
+}
+
 .bellIcon {
-    position: relative; /* Required for positioning the red dot */
-    color: #00274d; /* Navy blue color */
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  /* Red dot on the bell icon */
-  .bellIcon::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 10px;
-    height: 10px;
-    background-color: red; /* Red color for the dot */
-    border-radius: 50%; /* Makes the dot circular */
-    border: 2px solid #ffffff; /* Adds a white border to match the background */
-  }
-  
+  position: relative;
+  color: #00274d; 
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.bellIcon::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: red; 
+  border-radius: 50%; 
+  border: 2px solid #ffffff; 
+}
+
+.avatarDiv {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #00274d;
+}
+
+.headerNotificationDropdown {
+  display: none; 
+  position: absolute; 
+  top: 40px; 
+  right: 0;
+  background-color: #ffffff; 
+  box-shadow: 0 4px 8px #00274d; 
+  padding: 10px;
+  width: 200px; /* Set a fixed width */
+  border-radius: 5px;
+}
+
+/* Visible Dropdown */
+.headerNotificationDropdown.visible {
+  display: block; /* Show the dropdown when visible */
+}
+
+/* List inside the dropdown */
+.headerNotificationList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.headerNotificationList li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0; /* Add a divider between items */
+  font-size: 14px;
+  color: #00274d;
+}
+
+.headerNotificationList li:last-child {
+  border-bottom: none; /* Remove the bottom border for the last item */
+}

@@ -33,7 +33,7 @@ function Sidebar() {
         { key: "blogs", label: "Blogs", icon: <DiffOutlined />, path: "/blogs" },
         { key: "socialmedia", label: "Social Media", icon: <UserAddOutlined />, path: "/socialmedia" },
         { key: "settings", label: "Settings", icon: <SettingOutlined />, path: "/settings" },
-        { key: "signout", label: "Signout", icon: <LogoutOutlined />, path: "/logout" },
+        { key: "signout", label: "Signout", icon: <LogoutOutlined />, path: "/" },
     ], []);
 
 

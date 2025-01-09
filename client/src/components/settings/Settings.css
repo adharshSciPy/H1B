@@ -1,5 +1,8 @@
 body{
-  overflow: hidden;
+  overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
 }
 .settingsContainer {
   display: grid;
@@ -15,7 +18,7 @@ body{
   border-radius: 20px;
   background-color: #ffffff;
   overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
   -ms-overflow-style: none;
   height: 100vh; /* Full page height */
 }

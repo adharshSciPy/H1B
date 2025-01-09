@@ -2,12 +2,13 @@ import React from "react";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import "./Adminlanding.css";
 import Header from "../header/Header";
+import StockChart from "../chart/StockChart.jsx"
 
 function AdminLanding() {
   const data = [
     { name: "Alice", performance: 85, rank: 1 },
-    { name: "Alice", performance: 50, rank: 2 },
-  ];
+    { name: "Babu ", performance: 50, rank: 2 },
+  ];  
   return (
     <div className="settingsContainer">
       <Sidebar />
@@ -101,6 +102,7 @@ function AdminLanding() {
             </tbody>
           </table>
         </div>
+        <StockChart/>
       </div>
     </div>
   );

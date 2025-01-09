@@ -8,7 +8,8 @@ import Markloader from "../loader/Markloader";
 function Listing() {
   const collaborators = [1, 2, 3, 4];
   const data = [
-    { name: "Alice", performance: 85, rank: 1 }
+    { name: "Alice", performance: 85, rank: 1 },
+    { name: "Alice", performance: 50, rank: 2 },
   ];
   return (
     <div className="settingsContainer">
@@ -22,35 +23,37 @@ function Listing() {
         <div className="table-container">
           <div className="table-heading">
             <h1>Latest Listing</h1>
-            </div>
-      <table className="performance-table">
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th className="th-name">Name</th>
-            <th className="loader-header">Performance Loader</th>
-            <th className="th-rank">Rank</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td className="th-name">{item.name}</td>
-              <td className="loader-list-td">
-                <div className="loader-bar">
-                  <div
-                    className="loader-fill"
-                    style={{ width: `${item.performance}%` }}
-                  ></div>
-                </div>
-              </td>
-              <td className="th-rank">{item.rank}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </div>
+          <table className="performance-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th className="th-name">Name</th>
+                <th className="loader-header">Performance Loader</th>
+                <th className="th-rank">Rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((item, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td className="th-name">{item.name}</td>
+                  <td className="loader-list-td">
+                    <div className="loader-bar">
+                      <div
+                        className="loader-fill"
+                        style={{ width: `${item.performance}%` }}
+                      ></div>
+                    </div>
+                  </td>
+                  <td className="th-rank">
+                    <div className="rank-highlights">{item.rank}</div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <div className="list-button-div ">
           <button className="list-button-1">Add Listing</button>

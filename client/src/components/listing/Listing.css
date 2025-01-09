@@ -69,6 +69,9 @@
   padding: 10px 15px;
   color: white;
 }
+.performance-table th{
+  color: grey;
+}
 .loader-header{
   vertical-align: center;
   text-align: center;
@@ -103,7 +106,7 @@
 }
 .loader-list-td{
   display: flex;
-  align-items: center;
+  margin-top: 10px;
   justify-content: center;
 }
 .table-heading{
@@ -115,4 +118,12 @@
 .table-heading h1{
   font-weight: 300  ;
   font-size: 30px;
+}
+.rank-highlights{
+  width: fit-content;
+  border: 1px solid rgb(100, 80, 44);
+  margin: auto;
+  padding: 3px 15px;
+  border-radius: 5px;
+  color: orange;
 }

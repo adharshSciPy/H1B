@@ -170,3 +170,63 @@ input, select {
   padding: 5px 15px;
   cursor: pointer;
 }
+/* Media query for tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .outer-box {
+    padding: 20px;
+    height: auto; /* Allow the height to adjust to content */
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  .profile-header {
+    flex-direction: column; /* Stack profile picture, text, and button */
+    align-items: flex-start; /* Align items to the left */
+    gap: 10px; /* Increase spacing */
+  }
+
+  .profile-info {
+    align-items: flex-start; /* Align text to the left */
+  }
+
+  .email-section1 {
+    flex-direction: column; /* Stack email items */
+    align-items: flex-start; /* Align to the left */
+    gap: 10px;
+  }
+
+  .form-grid > * {
+    flex: 1 1 100%; /* Make each item take full width */
+  }
+
+  .edit-button, .save-button, .add-email-button1 {
+    width: 100%; /* Make buttons full width */
+    text-align: center;
+  }
+}
+
+/* Media query for mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .profile-header {
+    gap: 5px; /* Reduce spacing on smaller screens */
+  }
+
+  .profile-info h3 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .profile-info p {
+    font-size: 12px;
+  }
+
+  .form-container {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  input, select {
+    padding: 8px; /* Adjust input padding */
+  }
+
+  .email-text span {
+    font-size: 13px; /* Reduce timestamp font size */
+  }
+}

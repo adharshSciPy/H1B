@@ -69,7 +69,7 @@ function Settings() {
                       <h3>Alexa Rawles</h3>
                       <p>alexarawles@gmail.com</p>
                     </div>
-                    <button className="edit-button">Edit</button>
+                    {/* <button className="edit-button">Edit</button> */}
                   </div>
                   <form className="form-grid">
                     <label>

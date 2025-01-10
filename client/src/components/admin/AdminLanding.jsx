@@ -3,6 +3,10 @@ import Sidebar from "../sidebar/Sidebar.jsx";
 import "./Adminlanding.css";
 import Header from "../header/Header";
 import StockChart from "../chart/StockChart.jsx"
+import listicon from "../../assets/list.png"
+import blogicon from "../../assets/blog.png"
+import socialicon from "../../assets/socialmedia.png"
+
 
 function AdminLanding() {
   const data = [
@@ -26,7 +30,7 @@ function AdminLanding() {
           <div className="item-container">
             <div className="items">
               <div className="icon">
-                <img src="" alt="" />
+                <img src={listicon} alt="" />
               </div>
               <div className="items-heading">
                 <p>Listings</p>
@@ -40,10 +44,10 @@ function AdminLanding() {
             </div>
             <div className="items">
               <div className="icon">
-                <img src="" alt="" />
+                <img src={blogicon} alt="" />
               </div>
               <div className="items-heading">
-                <p>Listings</p>
+                <p>Blog</p>
               </div>
               <div className="content-1">
                 <p>Total Sales</p>
@@ -54,10 +58,10 @@ function AdminLanding() {
             </div>
             <div className="items">
               <div className="icon">
-                <img src="" alt="" />
+                <img src={socialicon} alt="" />
               </div>
               <div className="items-heading">
-                <p>Listings</p>
+                <p>Social Media</p>
               </div>
               <div className="content-1">
                 <p>Total Sales</p>

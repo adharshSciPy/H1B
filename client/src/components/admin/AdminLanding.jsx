@@ -2,13 +2,27 @@ import React from "react";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import "./Adminlanding.css";
 import Header from "../header/Header";
-import StockChart from "../chart/StockChart.jsx"
+import StockChart from "../chart/StockChart.jsx";
+import listicon from "../../assets/list.png";
+import blogicon from "../../assets/blog.png";
+import socialicon from "../../assets/socialmedia.png";
+import { useNavigate } from "react-router-dom";
 
 function AdminLanding() {
+  const navigate = useNavigate();
+  const goToList = () => {
+    navigate("/listing");
+  };
+  const goToBlog = () => {
+    navigate("/blogs");
+  };
+  const goToSocialmedia = () => {
+    navigate("/blogs");
+  };
   const data = [
     { name: "Alice", performance: 85, rank: 1 },
     { name: "Babu ", performance: 50, rank: 2 },
-  ];  
+  ];
   return (
     <div className="settingsContainer">
       <Sidebar />
@@ -24,48 +38,54 @@ function AdminLanding() {
             </div>
           </div>
           <div className="item-container">
-            <div className="items">
-              <div className="icon">
-                <img src="" alt="" />
+            <button onClick={goToList}>
+              <div className="items">
+                <div className="icon">
+                  <img src={listicon} alt="" />
+                </div>
+                <div className="items-heading">
+                  <p>Listings</p>
+                </div>
+                <div className="content-1">
+                  <p>Total Sales</p>
+                </div>
+                <div className="content-2">
+                  <p>+10% from yesterday</p>
+                </div>
               </div>
-              <div className="items-heading">
-                <p>Listings</p>
+            </button>
+            <button  onClick={goToBlog}>
+              <div className="items">
+                <div className="icon">
+                  <img src={blogicon} alt="" />
+                </div>
+                <div className="items-heading">
+                  <p>Blog</p>
+                </div>
+                <div className="content-1">
+                  <p>Total Sales</p>
+                </div>
+                <div className="content-2">
+                  <p>+10% from yesterday</p>
+                </div>
               </div>
-              <div className="content-1">
-                <p>Total Sales</p>
+            </button>
+            <button onClick={goToSocialmedia}>
+              <div className="items">
+                <div className="icon">
+                  <img src={socialicon} alt="" />
+                </div>
+                <div className="items-heading">
+                  <p>Social Media</p>
+                </div>
+                <div className="content-1">
+                  <p>Total Sales</p>
+                </div>
+                <div className="content-2">
+                  <p>+10% from yesterday</p>
+                </div>
               </div>
-              <div className="content-2">
-                <p>+10% from yesterday</p>
-              </div>
-            </div>
-            <div className="items">
-              <div className="icon">
-                <img src="" alt="" />
-              </div>
-              <div className="items-heading">
-                <p>Listings</p>
-              </div>
-              <div className="content-1">
-                <p>Total Sales</p>
-              </div>
-              <div className="content-2">
-                <p>+10% from yesterday</p>
-              </div>
-            </div>
-            <div className="items">
-              <div className="icon">
-                <img src="" alt="" />
-              </div>
-              <div className="items-heading">
-                <p>Listings</p>
-              </div>
-              <div className="content-1">
-                <p>Total Sales</p>
-              </div>
-              <div className="content-2">
-                <p>+10% from yesterday</p>
-              </div>
-            </div>
+            </button>
           </div>
         </div>
         <div className="table-container">
@@ -102,7 +122,7 @@ function AdminLanding() {
             </tbody>
           </table>
         </div>
-        <StockChart/>
+        <StockChart />
       </div>
     </div>
   );

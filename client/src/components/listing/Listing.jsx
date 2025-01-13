@@ -57,7 +57,6 @@ function Listing() {
 
         <div className="list-button-div ">
           <button className="list-button-1">Add Listing</button>
-          <button className="list-button">Add Ranking</button>
         </div>
 
         <div className="settings-collaboratorList">

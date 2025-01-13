@@ -5,14 +5,29 @@ import imgdesign from "../assets/design.png";
 import imgdesigns from "../assets/design2.png";
 import img from "../assets/gir.png";
 import img1 from "../assets/header-logo.png";
+import { useState,useEffect } from "react";
 
 function LandingPage() {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsNavbarVisible(window.scrollY <= 10);
+    };
+
+    window.addEventListener("scroll",  handleScroll );
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <section>
         <div className="container-1">
           <div className="white-background">
-            <div className="nav-bar">
+            <div className={`nav-bar ${isNavbarVisible ? "" : "hidden"}`}>
               <div className="navbar-main">
                 <div className="left-contents">
                   <div className="logo">

@@ -21,6 +21,13 @@
   display: flex;
   justify-content: space-between;
 }
+.admin-first-container .item-container button{
+  width:30%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .admin-first-container .item-container .items{
   margin-top: 20px;
   padding: 10px 20px;
@@ -29,13 +36,18 @@
     flex-direction: column;
   align-items: flex-start;
   background-color: #00274d;
-  width: 30%;
+  width: 100%;
 
 }
 .admin-first-container .item-container .items .icon{
   height: 45px;
   width: 45px;
-  background-color: white;
+  margin-bottom: 5px;
+}
+.admin-first-container .item-container .items .icon img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .admin-first-container .item-container .items div{

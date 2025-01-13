@@ -10,6 +10,7 @@
   height: 80px;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
+  overflow: hidden;
 }
 .nav-bar.nav-bar.hidden {
   transform: translateY(-100%);
@@ -67,6 +68,7 @@
 }
 .container-1 {
   position: relative;
+  overflow: hidden;
 }
 .white-background {
   width: 100%;
@@ -145,6 +147,8 @@
   width: 100%;
   padding: 50px 100px 50px 100px;
   background-color: white;
+  overflow: hidden;
+
 }
 .container-2 .sub-container {
   width: 100%;
@@ -173,6 +177,8 @@
   background-color: white;
   display: flex;
   position: relative;
+  overflow: hidden;
+
 }
 .container-3 .design-container {
   width: 150px;
@@ -248,6 +254,8 @@
   padding-top: 50px;
   width: 100%;
   position: relative;
+  overflow: hidden;
+
 }
 .container-4 .main-container {
   width: 90%;
@@ -383,6 +391,7 @@
   background-color: white;
   width: 100%;
   overflow: hidden;
+
 }
 .container-5 .main-container {
   width: 100%;
@@ -406,6 +415,8 @@
   justify-content: space-between;
   gap: 10px;
   padding-top: 20px;
+  overflow: hidden;
+
 }
 .container-6 .main-container .item1 {
   flex: 1;
@@ -479,6 +490,8 @@
   width: 100%;
   padding: 50px 0px 60px 0px;
   background-color: rgb(243, 243, 243);
+  overflow: hidden;
+
 }
 .container-7 .main-container {
   width: 80%;
@@ -497,7 +510,7 @@
 }
 .container-7 .main-container .items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 50px; /* Uniform spacing between grid items */
   justify-items: center; /* Horizontal centering of items */
   align-items: center; /* Vertical centering of items */
@@ -513,6 +526,8 @@
 .container-8 {
   width: 100%;
   padding: 40px 0px;
+  overflow: hidden;
+
 }
 .container-8 .main-container {
   width: 80%;
@@ -588,6 +603,8 @@
 }
 .container-9 {
   width: 100%;
+  overflow: hidden;
+
 }
 .container-9 .main-container {
   width: 90%;
@@ -963,6 +980,9 @@ background-color: black;
 }
 
 @media(max-width:600px){
+  .container-main .left-container .left-contents .main-contents-container .heading-container h1 {
+    font-size: 80px;
+  }
   .container-main .right-container {
     display: none;
   }
@@ -993,8 +1013,14 @@ background-color: black;
 .container-3 .contents-container .items {
   padding-left: 10px;
 }
+.container-3 .contents-container .heading h2 {
+  font-size: 40px;
+}
 .container-3 .contents-container .button-div {
   padding-left: 20px;
+}
+.container-5 .main-container h1 {
+  font-size: 100px;
 }
 .container-4 .main-container p {
   font-size: 16px;

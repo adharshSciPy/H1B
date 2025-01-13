@@ -16,10 +16,11 @@ body::-webkit-scrollbar {
   padding: 20px;
   text-align: center;
   border-radius: 20px;
-  background-color: #ffffff;
+  background-color: #ebf3f5;
   overflow-y: scroll;
   scrollbar-width: none; 
   -ms-overflow-style: none;
+  
   height: 100vh; /* Full page height */
 }
 .settings-content::-webkit-scrollbar {
@@ -112,4 +113,19 @@ body::-webkit-scrollbar {
   border-radius: 100%;
   padding: 7px;
   background-color: #00274d;
+}
+
+@media (max-width:655px) {
+  .settingsContainer {
+    border: none;
+  }
+  .container {
+    border-radius: 0;
+    margin-right: 0;
+  }
+  .settings-content {
+    padding: 0px 10px 0px 20px;
+    border-radius: 0;
+  }
+  
 }

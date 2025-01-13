@@ -58,7 +58,7 @@ function Blogs() {
           {/* replace with state and map */}
           {collaborators.map((item) => (
             <div className="settings-singleCollaborator" key={item}>
-              <h6 className="settings-listHeading">Lorem</h6>
+              <h6 className="settings-listHeading">LOrem</h6>
               <div>
                 <Markloader score={7} maxScore={10} />{" "}
               </div>

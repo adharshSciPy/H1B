@@ -1,8 +1,21 @@
-import React from "react";
+import React,{useState} from "react";
 import "../userform/userform.css";
 import gokul from "../assets/gir.png";
 
 function UserForm() {
+  const [profileImage, setProfileImage] = useState(gokul);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setProfileImage(reader.result); // Set the image preview
+      };
+      reader.readAsDataURL(file);
+    }
+  };      
+  
   return (
     <div>
       <div className="head-name">
@@ -15,10 +28,29 @@ function UserForm() {
   <div class="profile-left">
     <div class="image-upload">
       <label for="profileImage">
-        <img src={gokul} alt="Profile Picture" id="profilePreview" />
-      </label>
-      <input type="file" id="profileImage" accept="image/*" onchange="previewImage(event)" />
-    </div>
+      <img
+                    src={profileImage}
+                    alt="Profile Preview"
+                    id="profilePreview"
+                    style={{
+                      cursor: "pointer",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                </label>
+
+
+                
+                <input
+                  type="file"
+                  id="profileImage"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={handleImageChange}
+                />
+              </div>
     <div class="profile-details">
       <h2>John Doe</h2>
       <p>johndoe@example.com</p>

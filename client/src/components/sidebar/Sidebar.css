@@ -97,3 +97,10 @@
 .menu .ant-tooltip {
   z-index: 9999;
 }
+
+
+@media (max-width:760px){
+    .pin-pin{
+      display: none;
+    }
+}

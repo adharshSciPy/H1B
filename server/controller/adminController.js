@@ -104,6 +104,17 @@ const adminLogout = async (req, res) => {
             res.status(500).json({ error: error.message });
         }
     };
+
+const viewAdmin=async(req,res)=>{
+    try {
+        const adminData=await Admin.find();
+        res.status(200).json({message:"Admin found",data:adminData});
+
+    } catch (error) {
+        res.status(500).json({message:`Internal server error due to ${error.message}`})
+        
+    }
+}
     
 
 
@@ -134,4 +145,4 @@ const deleteCollaborator=async(req,res)=>{
         
     }
 }
-export{registerAdmin,editAdmin,adminLogout,getCollaborators,getSingleCollaborator,deleteCollaborator}
+export{registerAdmin,editAdmin,adminLogout,viewAdmin,getCollaborators,getSingleCollaborator,deleteCollaborator}

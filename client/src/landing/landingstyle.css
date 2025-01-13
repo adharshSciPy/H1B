@@ -10,6 +10,7 @@
   height: 80px;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
+  overflow: hidden;
 }
 .nav-bar.nav-bar.hidden {
   transform: translateY(-100%);
@@ -67,6 +68,7 @@
 }
 .container-1 {
   position: relative;
+  overflow: hidden;
 }
 .white-background {
   width: 100%;
@@ -145,6 +147,8 @@
   width: 100%;
   padding: 50px 100px 50px 100px;
   background-color: white;
+  overflow: hidden;
+
 }
 .container-2 .sub-container {
   width: 100%;
@@ -173,6 +177,8 @@
   background-color: white;
   display: flex;
   position: relative;
+  overflow: hidden;
+
 }
 .container-3 .design-container {
   width: 150px;
@@ -248,6 +254,8 @@
   padding-top: 50px;
   width: 100%;
   position: relative;
+  overflow: hidden;
+
 }
 .container-4 .main-container {
   width: 90%;
@@ -383,6 +391,7 @@
   background-color: white;
   width: 100%;
   overflow: hidden;
+
 }
 .container-5 .main-container {
   width: 100%;
@@ -406,6 +415,8 @@
   justify-content: space-between;
   gap: 10px;
   padding-top: 20px;
+  overflow: hidden;
+
 }
 .container-6 .main-container .item1 {
   flex: 1;
@@ -479,6 +490,8 @@
   width: 100%;
   padding: 50px 0px 60px 0px;
   background-color: rgb(243, 243, 243);
+  overflow: hidden;
+
 }
 .container-7 .main-container {
   width: 80%;
@@ -497,12 +510,11 @@
 }
 .container-7 .main-container .items {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  width: 100%;
-  justify-items: center;
-  align-items: center;
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 50px; /* Uniform spacing between grid items */
+  justify-items: center; /* Horizontal centering of items */
+  align-items: center; /* Vertical centering of items */
+  width: 100%; /* Full width of the parent container */
 }
 .container-7 .main-container .demo {
   background-color: lightblue;
@@ -514,6 +526,8 @@
 .container-8 {
   width: 100%;
   padding: 40px 0px;
+  overflow: hidden;
+
 }
 .container-8 .main-container {
   width: 80%;
@@ -549,8 +563,9 @@
 }
 .container-8 .main-container .item-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   padding-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
 }
 .container-8 .main-container .item-container .card {
   width: 100%;
@@ -588,6 +603,8 @@
 }
 .container-9 {
   width: 100%;
+  overflow: hidden;
+
 }
 .container-9 .main-container {
   width: 90%;
@@ -649,6 +666,7 @@
 }
 .footer {
   width: 100%;
+  overflow: hidden;
 }
 .footer-main-container {
   width: 95%;
@@ -681,9 +699,11 @@
   z-index: 1;
   font-size: 18px;
 }
+
 .footer-main-container .footer-contents {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
 }
 .footer-main-container .footer-contents .part-one {
   width: 100%;
@@ -763,4 +783,268 @@ background-color: black;
     padding: 5px 10px;
     border-radius: 0px 10px 10px 0px;
     width: 50%;
+}
+
+@media (max-width:1300px) {
+  .container-4 .main-container .right-contents {
+    padding-right: 10px;
+  }
+  .container-4 .main-container {
+
+    width: 100%;
+  }
+  .container-4 .main-container .left-contents .left-design-img {
+    display: none;
+  }
+  .container-4 .main-container .left-contents .contents-main {
+    padding-left: 0;
+  }
+}
+@media(max-width:1200px){
+  .container-main
+  .left-container
+  .left-contents
+  .main-contents-container
+  .heading-container
+  h1 {
+  font-size: 140px;
+  color: white;
+  font-weight: 500;
+  line-height: 80px;
+  line-height: 140px;
+}
+  .container-2 .sub-container .heading-contents h1 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 400;
+  }
+  .container-main .left-container .left-contents {
+    padding: 160px 50px 100px 20px;
+  }
+  .container-2 .sub-container .heading-contents {
+    width: 90%;
+  }
+  .container-2 .sub-container .text-contents {
+    width: 75%;
+    padding: 20px 0px 0px 0px;
+  } 
+}
+@media(max-width:1150px){
+  .container-4 .main-container .right-contents .right-design-img {
+    display: none;
+  }
+  .container-4 .main-container .right-contents .contents-main {
+    padding-left: 0px;
+  }
+  .container-4 .main-container .right-contents {
+    padding-bottom: 50px;
+    padding-right: 70px;
+    padding-left: 30px;
+    padding-top: 50px;
+  }
+  .container-4 .main-container .left-contents .contents-main .text-one {
+    padding-right: 0;
+  }
+  .container-4 .main-container .left-contents .contents-main .text-three {
+    padding-right: 0;
+  }
+  .container-4 .main-container .right-contents .contents-main .text-one {
+    padding-right: 0;
+  }
+  .container-4 .main-container .right-contents .contents-main .text-three {
+    padding-right:0px ;
+  }
+  .container-main .left-container .left-contents {
+    padding: 100px 50px 50px 0px;
+}
+}
+@media(max-width:1000px){
+  .container-main
+  .left-container
+  .left-contents
+  .main-contents-container
+  .heading-container
+  h1 {
+  font-size: 120px;
+  color: white;
+  font-weight: 500;
+  line-height: 80px;
+  line-height: 120px;
+}
+.middle-box {
+  display: none;
+}
+.container-3 .contents-container .text-content {
+  width: 100%;
+}
+.container-3 .contents-container .items {
+  width: 100%;
+}
+.container-7 .main-container {
+  width: 100%;
+}
+.container-6 .main-container div h2 {
+  font-size: 40px;
+}
+.container-4 .main-container .left-contents {
+  padding-right: 30px;
+}
+.container-4 .main-container .right-contents {
+  padding-right: 30px;
+}
+.container-8 .main-container .text-container {
+  width: 65%;
+}
+.container-9 .main-container .item-main .item-one .heading-container h2 {
+  font-size: 30px;
+}
+}
+
+
+
+
+@media (max-width:800px) {
+  
+  .container-main
+  .left-container
+  .left-contents
+  .main-contents-container
+  .heading-container
+  h1 {
+  font-size: 90px;
+  color: white;
+  font-weight: 500;
+  line-height: 80px;
+  line-height: 120px;
+}
+.container-main {
+  width: 100%;
+}
+.container-3 .contents-container {
+  width: 100%;
+}
+.container-3 .design-container {
+  left: 0px;
+}
+.container-8 .main-container {
+  width: 100%;
+}
+.container-6 .main-container {
+  flex-direction: column;
+}
+.container-6 .main-container .item1{
+  transform:rotate(0deg);
+}
+.container-6 .main-container .item3{
+  transform:rotate(0deg);
+}
+
+}
+
+
+@media (max-width:770px) {
+  .container-2 {
+    padding: 20px 50px 50px 20px;
+  }
+  .container-9 .main-container .item-main {
+    flex-direction: column;
+  }
+  .container-9 .main-container .item-main .item-one {
+    width: 100%;
+  }
+  .container-9 .main-container .item-main .item-two {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .container-9 .main-container .item-main .item-three {
+    width: 100%;
+    margin-top: 40px;
+
+    
+  }
+  .container-9 .main-container .item-main .item-one .button-container {
+    margin-top: 40px;
+  }
+  .container-4 .main-container {
+    flex-direction: column;
+  }
+  .container-4 .main-container .left-contents{
+    width: 100%;
+  }
+  .container-4 .main-container .right-contents{
+    width: 100%;
+  }
+  .container-7 .main-container .items {
+    gap: 10px;
+  } 
+}
+
+@media(max-width:600px){
+  .container-main .left-container .left-contents .main-contents-container .heading-container h1 {
+    font-size: 80px;
+  }
+  .container-main .right-container {
+    display: none;
+  }
+  .container-main .left-container {
+    width: 100%;
+  }
+  .container-2 .sub-container .heading-contents {
+    width: 100%;
+  }
+  .container-2 .sub-container .heading-contents h1 {
+    font-size: 33px;
+  }
+  .container-2 .sub-container .text-contents {
+    width: 90%;
+  }
+  .container-3 .design-container {
+    display: none;
+  }
+  .container-3 .contents-container {
+    padding: 60px 50px 0px 50px;
+  }
+  .container-3 .contents-container .heading {
+    padding-left: 10px;
+}
+.container-3 .contents-container .text-content {
+  padding-left: 10px;
+}
+.container-3 .contents-container .items {
+  padding-left: 10px;
+}
+.container-3 .contents-container .heading h2 {
+  font-size: 40px;
+}
+.container-3 .contents-container .button-div {
+  padding-left: 20px;
+}
+.container-5 .main-container h1 {
+  font-size: 100px;
+}
+.container-4 .main-container p {
+  font-size: 16px;
+}
+.container-3 .contents-container .items div p {
+  font-size: 15px;
+}
+.container-3 .contents-container .items {
+  flex-direction: column;
+}
+.container-3 .contents-container .items div{
+  padding-top: 5px;
+} 
+.container-8 .main-container .heading-container {
+  width: 100%;
+}
+.container-8 .main-container .heading-container h1 {
+  font-size: 35px;
+
+}
+.container-8 .main-container .text-container {
+  width: 90%;
+}
+.footer-main-container .footer-contents .part-two {
+  align-items: start;
+}
 }

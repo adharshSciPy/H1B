@@ -32,49 +32,66 @@
 }
 
 /* Profile header styling */
-.profile-header {
+.profile-container {
   display: flex;
-  align-items: start; /* Vertically aligns all elements */
-  justify-content: start; /* Pushes the button to the far right */
-  gap: 5px; /* Adds spacing between the image and the text */
-  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 850px; /* Matches the form width */
+  /* margin: 0 auto; */
+  padding: 16px 0; /* Optional padding for spacing */
 }
 
-.profile-picture {
-  width: 50px;
-  height: 50px;
+.profile-left {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.image-upload {
+  position: relative;
+  margin-right: 16px;
+}
+
+.image-upload input {
+  display: none;
+}
+
+.image-upload img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column; /* Stacks name and email vertically */
-}
-
-.profile-info h3 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.profile-info p {
-  margin: 0;
-  font-size: 11px;
-  color: #666;
-}
-
-.edit-button {
-  padding: 8px 12px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
+  border: 2px solid #ccc;
   cursor: pointer;
-  font-size: 14px;
 }
 
-.edit-button:hover {
+.profile-details h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.profile-details p {
+  margin: 4px 0 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+
+.profile-right .edit-btn {
+  background-color: #00509e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.profile-right .edit-btn:hover {
   background-color: #0056b3;
 }
+
 
 /* Form grid styling */
 .form-grid {
@@ -123,9 +140,9 @@ input, select {
 
 .mail-icon {
   font-size: 20px; 
-  width: 15px; 
-  height: 15px; 
-  background-color: #ddd; 
+  width: 12px; 
+  height: 12px; 
+  background-color: green; 
   border-radius: 50%; 
   display: flex;
   justify-content: center;
@@ -167,19 +184,21 @@ input, select {
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 8px 16px;
   cursor: pointer;
+  font-size: 1em;
 }
-/* Media query for tablets and smaller screens (max-width: 768px) */
+
 @media (max-width: 768px) {
   .outer-box {
     padding: 20px;
-    height: auto; /* Allow the height to adjust to content */
-    flex-direction: column; /* Stack content vertically */
+    height: auto; 
+    flex-direction: column; 
+
   }
 
   .profile-header {
-    flex-direction: column; /* Stack profile picture, text, and button */
+    flex-direction: column; 
     align-items: flex-start; /* Align items to the left */
     gap: 10px; /* Increase spacing */
   }

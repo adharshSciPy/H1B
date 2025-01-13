@@ -27,3 +27,28 @@
   background-color: #00274d;
   margin-top:20px;
 }
+
+@media (max-width:655px){
+  .blog-table-container {
+    width: 100%;
+  }
+  .performance-container {
+    width: 150px;
+    padding: 10px;
+  }
+  .settings-collaboratorButtons {
+    gap: 0px;
+  }
+  .settings-listHeading {
+    font-size: small;
+  }
+  .table-heading h1 {
+    font-size: 20px;
+  }
+}
+@media (max-width:400px){
+  .performance-container {
+    width: 100px;
+    padding: 10px;
+  }
+}

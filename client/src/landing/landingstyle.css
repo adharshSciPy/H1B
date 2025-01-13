@@ -764,3 +764,192 @@ background-color: black;
     border-radius: 0px 10px 10px 0px;
     width: 50%;
 }
+
+@media (max-width:1300px) {
+  .container-4 .main-container .right-contents {
+    padding-right: 10px;
+  }
+  .container-4 .main-container {
+
+    width: 100%;
+  }
+  .container-4 .main-container .left-contents .left-design-img {
+    display: none;
+  }
+  .container-4 .main-container .left-contents .contents-main {
+    padding-left: 0;
+  }
+}
+@media(max-width:1200px){
+  .container-main
+  .left-container
+  .left-contents
+  .main-contents-container
+  .heading-container
+  h1 {
+  font-size: 140px;
+  color: white;
+  font-weight: 500;
+  line-height: 80px;
+  line-height: 140px;
+}
+  .container-2 .sub-container .heading-contents h1 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 400;
+  }
+  .container-main .left-container .left-contents {
+    padding: 160px 50px 100px 20px;
+  }
+  .container-2 .sub-container .heading-contents {
+    width: 90%;
+  }
+  .container-2 .sub-container .text-contents {
+    width: 75%;
+    padding: 20px 0px 0px 0px;
+  } 
+}
+@media(max-width:1150px){
+  .container-4 .main-container .right-contents .right-design-img {
+    display: none;
+  }
+  .container-4 .main-container .right-contents .contents-main {
+    padding-left: 0px;
+  }
+  .container-4 .main-container .right-contents {
+    padding-bottom: 50px;
+    padding-right: 70px;
+    padding-left: 30px;
+    padding-top: 50px;
+  }
+  .container-4 .main-container .left-contents .contents-main .text-one {
+    padding-right: 0;
+  }
+  .container-4 .main-container .left-contents .contents-main .text-three {
+    padding-right: 0;
+  }
+  .container-4 .main-container .right-contents .contents-main .text-one {
+    padding-right: 0;
+  }
+  .container-4 .main-container .right-contents .contents-main .text-three {
+    padding-right:0px ;
+  }
+  .container-main .left-container .left-contents {
+    padding: 100px 50px 50px 0px;
+}
+}
+@media(max-width:1000px){
+  .container-main
+  .left-container
+  .left-contents
+  .main-contents-container
+  .heading-container
+  h1 {
+  font-size: 120px;
+  color: white;
+  font-weight: 500;
+  line-height: 80px;
+  line-height: 120px;
+}
+.middle-box {
+  display: none;
+}
+.container-3 .contents-container .text-content {
+  width: 100%;
+}
+.container-3 .contents-container .items {
+  width: 100%;
+}
+.container-7 .main-container {
+  width: 100%;
+}
+.container-6 .main-container div h2 {
+  font-size: 40px;
+}
+.container-4 .main-container .left-contents {
+  padding-right: 30px;
+}
+.container-4 .main-container .right-contents {
+  padding-right: 30px;
+}
+.container-8 .main-container .text-container {
+  width: 65%;
+}
+.container-9 .main-container .item-main .item-one .heading-container h2 {
+  font-size: 30px;
+}
+}
+
+
+
+
+@media (max-width:800px) {
+  
+  .container-main
+  .left-container
+  .left-contents
+  .main-contents-container
+  .heading-container
+  h1 {
+  font-size: 90px;
+  color: white;
+  font-weight: 500;
+  line-height: 80px;
+  line-height: 120px;
+}
+.container-main {
+  width: 100%;
+}
+.container-3 .contents-container {
+  width: 100%;
+}
+.container-3 .design-container {
+  left: 0px;
+}
+.container-8 .main-container {
+  width: 100%;
+}
+.container-6 .main-container {
+  flex-direction: column;
+}
+.container-6 .main-container .item1{
+  transform:rotate(0deg);
+}
+.container-6 .main-container .item3{
+  transform:rotate(0deg);
+}
+
+}
+
+
+@media (max-width:770px) {
+  .container-9 .main-container .item-main {
+    flex-direction: column;
+  }
+  .container-9 .main-container .item-main .item-one {
+    width: 100%;
+  }
+  .container-9 .main-container .item-main .item-two {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .container-9 .main-container .item-main .item-three {
+    width: 100%;
+    margin-top: 40px;
+
+    
+  }
+  .container-9 .main-container .item-main .item-one .button-container {
+    margin-top: 40px;
+  }
+  .container-4 .main-container {
+    flex-direction: column;
+  }
+  .container-4 .main-container .left-contents{
+    width: 100%;
+  }
+  .container-4 .main-container .right-contents{
+    width: 100%;
+  }
+
+}

@@ -60,7 +60,21 @@ function Settings() {
       console.log("error", error);
     }
   };
+  // to delete the collaborator
+  const deleteCollab = async (id) => {
 
+    try {
+      const response = await axios.delete(
+        `http://localhost:9000/api/v1/admin/deletecollaborator?id=${id}`
+        
+      );
+    console.log("id",id);
+
+      console.log("response", response.data);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   // Scroll to the form when the popup is opened
   useEffect(() => {
     if (isPopupVisible && formRef.current) {
@@ -95,7 +109,12 @@ function Settings() {
                 >
                   Edit
                 </button>
-                <button className="settings-collaboratorDelete">Delete</button>
+                <button
+                  className="settings-collaboratorDelete"
+                  onClick={() => deleteCollab(item._id)}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}
@@ -406,14 +425,15 @@ function Settings() {
                       </select>
                     </label>
 
-                    <label>Password
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      value={addCollabs.password}
-                      onChange={handleChange}
-                    />
+                    <label>
+                      Password
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={addCollabs.password}
+                        onChange={handleChange}
+                      />
                     </label>
                     <label>
                       Email :

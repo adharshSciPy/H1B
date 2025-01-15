@@ -135,14 +135,20 @@ const getSingleCollaborator=async(req,res)=>{
         res.status(500).json({message:`Internal server error ${error.message}`})
     }
 }
-const deleteCollaborator=async(req,res)=>{
-    const {id}=req.body;
+const deleteCollaborator = async (req, res) => {
+    const { id } = req.query; 
     try {
-        const deletedCollaborator=await Collaborator.findByIdAndDelete(id);
-        res.status(200).json({message:"Collaborator deleted succesfully",data:deletedCollaborator})
+        if (!id) {
+            return res.status(400).json({ message: "Missing collaborator ID", data: null });
+        }
+        const deletedCollaborator = await Collaborator.findByIdAndDelete(id);
+        if (!deletedCollaborator) {
+            return res.status(404).json({ message: "Collaborator not found", data: null });
+        }
+        res.status(200).json({ message: "Collaborator deleted successfully", data: deletedCollaborator });
     } catch (error) {
-        res.status(500).json({message:`Internal server error ${error.message}`})
-        
+        res.status(500).json({ message: `Internal server error: ${error.message}` });
     }
-}
+};
+
 export{registerAdmin,editAdmin,adminLogout,viewAdmin,getCollaborators,getSingleCollaborator,deleteCollaborator}

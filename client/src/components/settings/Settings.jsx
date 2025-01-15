@@ -5,18 +5,25 @@ import Header from "../header/Header";
 import { CloseOutlined } from "@ant-design/icons";
 import "../../userform/userform.css";
 import gokul from "../../assets/gir.png";
+import axios from 'axios';
 
 
 function Settings() {
-  const collaborators = [1, 2, 3, 4];
+  // const collaborators = [1, 2, 3, 4];
+  const [collaborators,setCollaborators]=useState([]);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const formRef = useRef(null); // Reference for scrolling
-
+const getCollabs=async(req,res)=>{
+  const response=await axios.get(`http://localhost:9000/api/v1/admin//getallcollaborators`);
+  // console.log(response.data.data);
+  setCollaborators(response.data.data);
+}
   // Scroll to the form when the popup is opened
   useEffect(() => {
     if (isPopupVisible && formRef.current) {
       formRef.current.scrollIntoView({ behavior: "smooth" });
     }
+    getCollabs()
   }, [isPopupVisible]);
 
   return (
@@ -38,7 +45,7 @@ function Settings() {
         <div className="settings-collaboratorList">
           {collaborators.map((item) => (
             <div className="settings-singleCollaborator" key={item}>
-              <h6 className="settings-listHeading">Lorem</h6>
+              <h6 className="settings-listHeading">{`${item.firstName} ${item.lastName}`}</h6>
               <div className="settings-collaboratorButtons">
                 <button
                   className="settings-collaboratorEdit"

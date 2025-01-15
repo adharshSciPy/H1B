@@ -2,10 +2,10 @@ import { Collaborator } from "../model/collaboratorModel.js";
 import { passwordValidator } from "../utils/passwordValidator.js";
 
 const addCollaborator=async(req,res)=>{
-  const{firstName,lastName,email,password,gender,country,language,timezone}=req.body;
+  const{firstName,lastName,email,password,gender,country}=req.body;
 
     try {
-        const isEmptyField=[firstName,lastName,email,password,gender,country,language,timezone].some((field)=>(
+        const isEmptyField=[firstName,lastName,email,password,gender,country].some((field)=>(
             field.trim()=== ''||field===undefined
         ));
         if(isEmptyField){
@@ -30,9 +30,8 @@ const addCollaborator=async(req,res)=>{
             password,
             role,
             gender,
-            country,
-            language,
-            timezone
+            country
+            
         });
         const createdCollaborator=await Collaborator.findOne({_id:collaborator._id}).select("-password")
         if (!createdCollaborator) {

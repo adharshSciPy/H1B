@@ -10,7 +10,7 @@ function UserForm() {
     gender: "",
     country: "",
     language: "",
-    timezone: "",
+    email: "",
   });
   const getAdmin = async () => {
     try {
@@ -350,38 +350,12 @@ function UserForm() {
               </select>
             </label>
             <label>
-              Time Zone:
-              <select value={admin.timezone}
-                onChange={handleChange} // Update the gender in the state
-                >
-                <option value="UTC-12:00">UTC-12:00</option>
-                {/* <option value="ist">ist</option> */}
-
-                <option value="UTC-11:00">UTC-11:00</option>
-                <option value="UTC-10:00">UTC-10:00</option>
-                <option value="UTC-09:00">UTC-09:00</option>
-                <option value="UTC-08:00">UTC-08:00</option>
-                <option value="UTC-07:00">UTC-07:00</option>
-                <option value="UTC-06:00">UTC-06:00</option>
-                <option value="UTC-05:00">UTC-05:00</option>
-                <option value="UTC-04:00">UTC-04:00</option>
-                <option value="UTC-03:00">UTC-03:00</option>
-                <option value="UTC-02:00">UTC-02:00</option>
-                <option value="UTC-01:00">UTC-01:00</option>
-                <option value="UTC+00:00">UTC+00:00</option>
-                <option value="UTC+01:00">UTC+01:00</option>
-                <option value="UTC+02:00">UTC+02:00</option>
-                <option value="UTC+03:00">UTC+03:00</option>
-                <option value="UTC+04:00">UTC+04:00</option>
-                <option value="UTC+05:00">UTC+05:00</option>
-                <option value="UTC+06:00">UTC+06:00</option>
-                <option value="UTC+07:00">UTC+07:00</option>
-                <option value="UTC+08:00">UTC+08:00</option>
-                <option value="UTC+09:00">UTC+09:00</option>
-                <option value="UTC+10:00">UTC+10:00</option>
-                <option value="UTC+11:00">UTC+11:00</option>
-                <option value="UTC+12:00">UTC+12:00</option>
-              </select>
+              Email :
+              <input
+                type="email"
+                placeholder="Email"
+                value={admin.email}
+              />
             </label>
           </form>
           <div className="email-section1">

@@ -28,12 +28,6 @@ const collaboratorSchema = new Schema({
     },
     country:{
         type:String
-    },
-    language:{
-        type:String
-    },
-    timezone:{
-        type:String
     }
 }, { timestamps: true })
 

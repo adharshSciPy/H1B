@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Listing.css";
 import "../settings/Settings.css";
 import Sidebar from "../sidebar/Sidebar";
 import Header from "../header/Header";
 import Markloader from "../loader/Markloader";
+import { CloseOutlined } from "@ant-design/icons";
+import gokul from "../../assets/gir.png";
 
 function Listing() {
+  const [isVisible, setVisible] = useState(false);
+  const formRef = useRef(null); 
+  const [formData, setFormData] = useState({ number: "" });
+  const [error, setError] = useState("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Validate the input
+    if (value === "" || (Number(value) <= 10 && Number(value) >= 0)) {
+      setFormData({ ...formData, [name]: value });
+      setError(""); // Clear error message
+    } else {
+      setError("Value must be between 0 and 10.");
+    }
+  };
+  
+  if (isVisible && formRef.current) {
+    formRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+  useEffect(() => {
+    if (setVisible && formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [isVisible]);
+
   const collaborators = [1, 2, 3, 4];
   const data = [
     { name: "Alice", performance: 85, rank: 1 },
@@ -56,7 +83,9 @@ function Listing() {
         </div>
 
         <div className="list-button-div ">
-          <button className="list-button-1">Add Listing</button>
+          <button className="list-button-1" onClick={() => setVisible(true)}>
+            Add Listing
+          </button>
         </div>
 
         <div className="settings-collaboratorList">
@@ -74,6 +103,58 @@ function Listing() {
             </div>
           ))}
         </div>
+        {isVisible && (
+          <div className="settings-bottomForm" ref={formRef}>
+            <div className="settingsModalDiv-content">
+              <div className="outer-box" style={{ position: "relative" }}>
+                <div className="close-icon-wrapper">
+                  <CloseOutlined onClick={() => setVisible(false)} />
+                </div>
+                <div className="form-container">
+                  <div class="profile-container">
+                    <div class="profile-left">
+                     
+                    </div>
+                  </div>
+
+                  <form className="form-grid">
+                    <label>
+                       Name :
+                      <input type="text" placeholder="Name" />
+                    </label>
+                    <label>
+          Perfomance:
+          <input
+          placeholder="Perfomance Loader (0-10)"
+            type="number"
+            name="number"
+            value={formData.number}
+            onChange={handleChange}
+          />
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </label>
+        <label>
+         Rank:
+          <input
+            type="number"
+            name="number"
+            
+          />
+
+        </label>
+                    
+                    
+                  </form>
+                  <div className="email-section1">
+                    <button className="save-button">Save</button>
+                  </div>
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

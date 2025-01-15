@@ -126,3 +126,23 @@
   border-radius: 5px;
   color: orange;
 }
+.settings-bottomForm {
+  margin-top: 2rem;
+  /* padding: 20px; */
+  padding-right: 30px;
+  background-color: #ffff;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-icon-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 100%;
+  padding: 7px;
+  background-color: #00274d;
+}

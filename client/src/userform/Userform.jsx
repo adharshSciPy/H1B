@@ -12,6 +12,20 @@ function UserForm() {
     language: "",
     email: "",
   });
+
+    const [previewImage, setPreviewImage] = useState(null);
+
+    const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setPreviewImage(reader.result); // Set the image for preview
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  
   const getAdmin = async () => {
     try {
       const response = await axios.get(
@@ -48,13 +62,24 @@ function UserForm() {
             <div class="profile-left">
               <div class="image-upload">
                 <label for="profileImage">
-                  <img src={gokul} alt="Profile Picture" id="profilePreview" />
+                <img
+                    src={previewImage || gokul} // Use previewImage if available, otherwise fallback to gokul
+                    alt="Profile"
+                    id="profilePreview"
+                    style={{
+                      cursor: "pointer",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                    }}
+                  />
                 </label>
                 <input
                   type="file"
                   id="profileImage"
                   accept="image/*"
-                  onchange="previewImage(event)"
+                  style={{ display: "none" }}
+                  onChange={handleImageChange}
                 />
               </div>
               <div class="profile-details">

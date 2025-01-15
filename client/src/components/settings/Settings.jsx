@@ -406,7 +406,7 @@ function Settings() {
                       </select>
                     </label>
 
-                    <label>Password</label>
+                    <label>Password
                     <input
                       type="password"
                       placeholder="Password"
@@ -414,6 +414,7 @@ function Settings() {
                       value={addCollabs.password}
                       onChange={handleChange}
                     />
+                    </label>
                     <label>
                       Email :
                       <input

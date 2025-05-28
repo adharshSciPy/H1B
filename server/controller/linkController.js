@@ -25,4 +25,21 @@ const linkPost = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
-export { linkPost};
+const fetchSortedLinks = async (req, res) => {
+  try {
+    const sortedLinks = await Links.find().sort({
+      ranking: 1,         // ascending
+      rating: -1,         // descending
+      companyName: 1      // ascending
+    });
+
+    return res.status(200).json({
+      message: "Links fetched and sorted successfully",
+      data: sortedLinks
+    });
+  } catch (error) {
+    console.error("Error fetching sorted links:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+export { linkPost,fetchSortedLinks};

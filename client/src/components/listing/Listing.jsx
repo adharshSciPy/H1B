@@ -102,7 +102,17 @@ function Listing() {
       formRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [isVisible]);
-
+const handleDelete = async (id) => {
+  if (window.confirm("Are you sure you want to delete this listing?")) {
+    try {
+      await axios.delete(`${baseUrl}/api/v1/link/delete-link/${id}`);
+      await ListData(); // refresh the list after delete
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Failed to delete the listing.");
+    }
+  }
+};
   return (
     <div className="settingsContainer">
       <Sidebar />
@@ -236,7 +246,7 @@ function Listing() {
                 >
                   Edit
                 </button>
-                <button className="settings-collaboratorDelete">Delete</button>
+                <button className="settings-collaboratorDelete" onClick={() => handleDelete(item._id)}>Delete</button>
               </div>
             </div>
           ))}

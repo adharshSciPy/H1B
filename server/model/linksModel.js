@@ -2,7 +2,7 @@ import mongoose,{Schema} from "mongoose";
 const linkSchema=new Schema({
     link:{
         type:String,
-        required:true
+        // required:true
     },
     companyName:{
         type:String

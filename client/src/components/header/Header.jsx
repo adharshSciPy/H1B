@@ -44,11 +44,11 @@ function Header() {
 
       <div className={styles.rightSection}>
         {/* Bell Icon */}
-        <BellOutlined
+        {/* <BellOutlined
           className={styles.bellIcon}
           onClick={openDropdown}
           ref={bellIconRef}
-        />
+        /> */}
         <div className={styles.avatarDiv}></div>
 
         {/* Notification Dropdown */}

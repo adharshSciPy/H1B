@@ -1,8 +1,8 @@
 import { Links } from "../model/linksModel.js";
 const linkPost = async (req, res) => {
-  const { link, companyName, ranking } = req.body;
+  const { link, companyName, ranking,rating } = req.body;
 
-  if (!link) {
+  if (!link) {  
     return res.status(400).json({ message: "Link is required" });
   }
 
@@ -11,6 +11,7 @@ const linkPost = async (req, res) => {
       link,
       companyName,
       ranking,
+      rating
     });
 
     const savedLink = await newLink.save();

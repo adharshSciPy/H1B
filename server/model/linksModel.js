@@ -10,6 +10,9 @@ const linkSchema=new Schema({
     ranking:{
         type:Number,
         
+    },
+    rating:{
+        type:Number
     }
 },{timestamps:true})
 export const Links = mongoose.model("Link", linkSchema);

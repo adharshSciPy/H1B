@@ -78,6 +78,26 @@ const updateLink = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+const deleteLink = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedLink = await Links.findByIdAndDelete(id);
+
+    if (!deletedLink) {
+      return res.status(404).json({ message: "Link not found" });
+    }
+
+    return res.status(200).json({
+      message: "Link deleted successfully",
+      data: deletedLink,
+    });
+  } catch (error) {
+    console.error("Error deleting link:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 
-export { linkPost,fetchSortedLinks,updateLink};
+
+export { linkPost,fetchSortedLinks,updateLink,deleteLink};

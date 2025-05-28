@@ -10,6 +10,7 @@ import collaboratorRouter from "./routes/collaboratorRouter.js";
 import { fileURLToPath } from "url";
 import guestRouter from "./routes/guestRouter.js";
 import linkRouter from "./routes/linkRouter.js";
+import blogRouter from "./routes/blogRouter.js"
 import socialMediaRouter from "./routes/socialMediaRouter.js";
 
 
@@ -40,6 +41,8 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/collaborator", collaboratorRouter);
 app.use("/api/v1/guest", guestRouter);
 app.use("/api/v1/link", linkRouter);
+app.use("/api/v1/blog", blogRouter);
+
 app.use("/api/v1/social", socialMediaRouter);
 
 

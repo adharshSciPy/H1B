@@ -8,7 +8,7 @@
     "@nivo/core": "^0.88.0",
     "antd": "^5.22.7",
     "apexcharts": "^4.3.0",
-    "axios": "^1.7.9",
+    "axios": "^1.9.0",
     "cra-template": "1.2.0",
     "react": "^18.3.1",
     "react-apexcharts": "^1.7.0",

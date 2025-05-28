@@ -9,6 +9,7 @@ import userRouter from "./routes/userRouter.js";
 import collaboratorRouter from "./routes/collaboratorRouter.js";
 import { fileURLToPath } from "url";
 import guestRouter from "./routes/guestRouter.js";
+import linkRouter from "./routes/linkRouter.js";
 
 
 dotenv.config();
@@ -37,6 +38,8 @@ app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/collaborator", collaboratorRouter);
 app.use("/api/v1/guest", guestRouter);
+app.use("/api/v1/link", linkRouter);
+
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 

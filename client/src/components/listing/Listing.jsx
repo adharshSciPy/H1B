@@ -235,7 +235,7 @@ const handleDelete = async (id) => {
         <div className="settings-collaboratorList">
           {data.map((item) => (
             <div className="settings-singleCollaborator" key={item._id}>
-              <h6 className="settings-listHeading">{item.companyName}</h6>
+              <div style={{width:"20%"}}><h6 className="settings-listHeading">{item.companyName}</h6></div>
               <div>
                 <Markloader score={item.rating / 10} maxScore={10} />
               </div>

@@ -20,7 +20,7 @@ const createblog = async (req, res) => {
 
     await newBlog.save();
     res.status(200).json({
-      message: "Webinar created successfully",
+      message: "Blog created successfully",
       blog: newBlog
     });
   } catch (err) {
@@ -28,6 +28,17 @@ const createblog = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+const listallBlog=async(req,res)=>{
+  try {
+    const allBlogs=await Blogs.find();
+    res.status(200).json({
+      message: "Allwebinars",
+      blog: allBlogs
+    });
+  } catch (error) {
+    
+  }
+}
 const deleteBlog = async (req, res) => {
   try {
     const blogId = req.params.id;
@@ -46,4 +57,4 @@ const deleteBlog = async (req, res) => {
 };
 
 
-export{createblog,deleteBlog}
+export{createblog,deleteBlog,listallBlog}

@@ -28,7 +28,7 @@ app.use(cors());
 app.use(bodyParser.json());
 connectMongodb()
   .then(() => {
-    app.listen(process.env.PORT || 8000, () => {
+    app.listen(process.env.PORT || 9000, () => {
       console.log(`Server is running ⚙️ at port : ${process.env.PORT}`);
     });
   })
@@ -42,11 +42,7 @@ app.use("/api/v1/collaborator", collaboratorRouter);
 app.use("/api/v1/guest", guestRouter);
 app.use("/api/v1/link", linkRouter);
 app.use("/api/v1/blog", blogRouter);
-
 app.use("/api/v1/social", socialMediaRouter);
-
-
-
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
 

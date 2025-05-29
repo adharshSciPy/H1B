@@ -39,6 +39,26 @@ const listallBlog=async(req,res)=>{
     
   }
 }
+const getBlogById = async (req, res) => {
+  try {
+    const blogId = req.params.id;
+
+    const blog = await Blogs.findById(blogId);
+
+    if (!blog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    res.status(200).json({
+      message: "Blog fetched successfully",
+      blog,
+    });
+  } catch (err) {
+    console.error("Get blog by ID error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 const deleteBlog = async (req, res) => {
   try {
     const blogId = req.params.id;
@@ -57,4 +77,4 @@ const deleteBlog = async (req, res) => {
 };
 
 
-export{createblog,deleteBlog,listallBlog}
+export{createblog,deleteBlog,listallBlog,getBlogById}

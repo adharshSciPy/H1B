@@ -6,6 +6,7 @@ import Listing from "./components/listing/Listing.jsx";
 import Blogs from "./components/blogs/Blogs.jsx";
 import Socialmedia from "./components/socialmedia/Socialmedia.jsx";
 import Settings from "./components/settings/Settings.jsx";
+import BlogPage from "./BlogPage/BlogPage.jsx"
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/socialmedia" element={<Socialmedia />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/blogpage/:id" element={<BlogPage />} />
+
 
           </Routes>
         </div>

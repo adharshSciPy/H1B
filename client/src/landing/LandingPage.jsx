@@ -106,13 +106,15 @@ navigate(`/blogpage/${id}`)
                   <p>{item.blogContent}</p>
                 </div>
               ))}
+              
             </div>
-          </div>
-          {visibleBlogs < blogData.length && (
-            <button onClick={() => setVisibleBlogs(prev => prev + 3)}>
+            {visibleBlogs < blogData.length && (
+            <button style={{padding:"10px",backgroundColor:"#45589f",color:"white",width:"100%"}} onClick={() => setVisibleBlogs(prev => prev + 3)}>
               Load More Blogs
             </button>
           )}
+          </div>
+          
 
           {/* Social Media */}
           <h3 style={{ marginTop: "20px", color: "#1e2a55" }}>
@@ -132,21 +134,21 @@ navigate(`/blogpage/${id}`)
                     {item.company} {item.platform}
                   </h4>
                   <a
-                    href={item.link}
+                    href={item.socialMediaLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Visit {item.platform}
+                    Visit
                   </a>
                 </div>
               ))}
             </div>
-          </div>
           {visibleSocials < socialData.length && (
-            <button onClick={() => setVisibleSocials(prev => prev + 4)}>
+            <button style={{padding:"10px",backgroundColor:"#45589f",color:"white",width:"100%"}} onClick={() => setVisibleSocials(prev => prev + 4)}>
               Load More Socials
             </button>
           )}
+          </div>
         </div>
       </main>
 

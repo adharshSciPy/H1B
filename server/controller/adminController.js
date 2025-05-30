@@ -1,154 +1,95 @@
 import { Admin } from "../model/adminModel.js";
-import { Collaborator } from "../model/collaboratorModel.js";
-import { passwordValidator } from "../utils/passwordValidator.js";
-import jwt from 'jsonwebtoken';
+import { generateAccessToken } from "../utils/jwt.js";
 
-
-
-
-const registerAdmin=async(req,res)=>{
-    const{firstName,lastName,email,password,gender,country,language,timezone}=req.body;
-
-    try {
-        const isEmptyField=[firstName,lastName,email,password,gender,country,language,timezone].some((field)=>(
-            field.trim()=== ''||field===undefined
-        ));
-        if(isEmptyField){
-            return res.status(401).json({ message: 'Please fill in all fields' });
-
-        }
-        const validPassword=passwordValidator(password);
-        if(!validPassword){
-            
-            return res.status(401).json({ message: 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character' });
-        }
-        const existingAdmin=await Admin.findOne({email:email});
-        if(existingAdmin){
-            return res.status(409).json({ message: 'Email already in use' });
-
-        }
-        const role = process.env.ADMIN_ROLE;
-        const admin=await Admin.create({
-            firstName,
-            lastName,
-            email,
-            password,
-            role,
-            gender,
-            country,
-            language,
-            timezone
-        });
-        const createdAdmin=await Admin.findOne({_id:admin._id}).select("-password")
-        if (!createdAdmin) {
-            return res.status(500).json({ message: 'Admin Registeration Failed' })
-        }
-
-        res.status(200).json({ message: 'Admin registered successfully', data: createdAdmin })
-    } catch (error) {
-        return res.status(500).json({ message: `Internal server error due to ${error.message}` })
-        
+const registerAdmin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const role = process.env.ADMIN_ROLE;
+    if (!email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
     }
+
+    const existingAdmin = await Admin.findOne({ email });
+    if (existingAdmin) {
+      return res.status(409).json({ message: "Email already registered" });
+    }
+
+    const newAdmin = new Admin({ email, password, role }); // Password will be hashed by model
+    await newAdmin.save();
+
+    res
+      .status(201)
+      .json({ message: "Admin registered successfully", newAdmin });
+  } catch (error) {
+    console.error("Register Error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+const loginAdmin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password)
+      return res.status(400).json({ message: "Email and password required" });
+
+    const admin = await Admin.findOne({ email });
+    if (!admin || !(await admin.isPasswordCorrect(password))) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const token = await admin.generateAccessToken();
+
+    res.status(200).json({
+      message: "Login successfully",
+      token, // Include the token in the response
+      email: admin.email,
+      role: admin.role,
+    });
+  } catch (error) {
+    console.error("Login Error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+const getAllAdmin=async(req,res)=>{
+  try {
+    const response = await Admin.find()
+    res.status(200).json({
+      message: "All Admins",
+      response
+    });
+  } catch (error) {
+    console.log(error);
+    
+  }
 }
-const adminLogout = async (req, res) => {
-    try {
-        const { refreshToken } = req.cookies;
-        if (!refreshToken) {
-            return res.status(204).json({ message: "Invalid Cookie" })
-        }
-        res.clearCookie("refreshToken", {
-            httpOnly: true,
-            secure: false,//Secure only in production
-            sameSite: "None"
-        })
-        return res.status(200).json({ message: "Logout Successfully" })
-    } catch (error) {
-        return res.status(500).json({ message: `Internal server error due to ${error.message}` })
-    }
-}
-    const editAdmin = async (req, res) => {
-        const { id } = req.params;
-        const file = req.file;
-        const { firstName,lastName,gender,country,language} = req.body;
-    
-        if (!file) {
-            return res.status(400).json({ error: "No file uploaded" });
-        }
-    
-        try {
-            // Update admin record with the provided data
-            const editResult = await Admin.findByIdAndUpdate(
-                id,
-                {
-                    firstName,
-                    image: `/uploads/${file.filename}`,
-                    lastName,
-                    gender,
-                    country,
-                    language
-                },
-                { new: true } // Return the updated document
-            );
-    
-            if (!editResult) {
-                return res.status(404).json({ error: "Admin not found" });
-            }
-    
-            res.status(200).json({
-                message: "Updated successfully",
-                data: editResult,
-            });
-    
-        } catch (error) {
-            console.error('Error:', error);
-            res.status(500).json({ error: error.message });
-        }
-    };
+const logoutAdmin = async (req, res) => {
+  try {
+    const { refreshToken } = req.body;
+    if (!refreshToken) return res.status(400).json({ message: "Token required" });
 
-const viewAdmin=async(req,res)=>{
-    try {
-        const adminData=await Admin.find();
-        res.status(200).json({message:"Admin found",data:adminData});
+    // Delete refresh token from DB or blacklist
+    await Token.deleteOne({ token: refreshToken });
 
-    } catch (error) {
-        res.status(500).json({message:`Internal server error due to ${error.message}`})
-        
-    }
-}
-    
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Logout failed" });
+  }
+};
+const deleteAdminById = async (req, res) => {
+  try {
+    const { id } = req.params;
 
+    const deletedAdmin = await Admin.findByIdAndDelete(id);
 
-const getCollaborators=async(req,res)=>{
-    try {
-        const allCollaborators=await Collaborator.find();
-        res.status(200).json({message:"All collaborators fetched",data:allCollaborators})
-    } catch (error) {
-        res.status(500).json({message:`Internal server error due to ${error.message}`})
+    if (!deletedAdmin) {
+      return res.status(404).json({ message: "Admin not found" });
     }
-}
-const getSingleCollaborator=async(req,res)=>{
-    const{id}=req.body;
-    try {
-        const singleCollaborators=await Collaborator.findById(id);
-        res.status(200).json({message:"Collaborator fetch succesfully",data:singleCollaborators})
-    } catch (error) {
-        res.status(500).json({message:`Internal server error ${error.message}`})
-    }
-}
-const deleteCollaborator = async (req, res) => {
-    const { id } = req.query; 
-    try {
-        if (!id) {
-            return res.status(400).json({ message: "Missing collaborator ID", data: null });
-        }
-        const deletedCollaborator = await Collaborator.findByIdAndDelete(id);
-        if (!deletedCollaborator) {
-            return res.status(404).json({ message: "Collaborator not found", data: null });
-        }
-        res.status(200).json({ message: "Collaborator deleted successfully", data: deletedCollaborator });
-    } catch (error) {
-        res.status(500).json({ message: `Internal server error: ${error.message}` });
-    }
+
+    res.status(200).json({ message: "Admin deleted successfully" });
+  } catch (error) {
+    console.error("Delete Admin Error:", error);
+    res.status(500).json({ message: "Server error while deleting admin" });
+  }
 };
 
-export{registerAdmin,editAdmin,adminLogout,viewAdmin,getCollaborators,getSingleCollaborator,deleteCollaborator}
+export { registerAdmin, loginAdmin ,logoutAdmin,getAllAdmin,deleteAdminById};

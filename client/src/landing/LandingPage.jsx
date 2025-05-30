@@ -3,7 +3,7 @@ import "./landingstyle.css";
 import axios from "axios";
 import baseUrl from "../baserUrl";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../assets/LogoH1B.png"
 
 function LandingPage() {
   const [listingsData, setListingDatas] = useState([]);
@@ -54,7 +54,7 @@ navigate(`/blogpage/${id}`)
   return (
     <div className="app">
       <header className="header">
-        <img src="H1B-logo.jpg" alt="H1B Path Logo" />
+        <img src={logo} alt="H1B Path Logo" />
       </header>
 
       <main className="main">
